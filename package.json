@@ -9,6 +9,10 @@
     "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'"
   },
   "dependencies": {
+    "@emotion/cache": "^11",
+    "@emotion/react": "^11",
+    "@emotion/server": "^11",
+    "@emotion/styled": "^11",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
