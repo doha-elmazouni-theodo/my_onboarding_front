@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'"
   },
   "dependencies": {
     "next": "12.0.7",
@@ -13,10 +14,12 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@ginkoe/eslint-config": "Ginkoe/eslint-config",
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
-    "eslint": "8.6.0",
+    "eslint": "^7",
     "eslint-config-next": "12.0.7",
+    "prettier": "^2.5.1",
     "typescript": "4.5.4"
   }
 }
