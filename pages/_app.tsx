@@ -2,7 +2,8 @@ import "../styles/globals.css";
 
 import React from "react";
 
-import type { NextComponentType } from "next";
+import type { NextComponentType } from "~types/next";
+
 import type { AppProps } from "next/app";
 
 interface CustomAppProps extends AppProps {
