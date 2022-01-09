@@ -1,6 +1,6 @@
 import createCache from "@emotion/cache";
+import createEmotionServer from "@emotion/server/create-instance";
 import type { EmotionCritical } from "@emotion/server/types/create-instance";
-import createEmotionServer from "@emotion/server/types/create-instance";
 
 const emotionCache = createCache({
   key: "css",
