@@ -20,8 +20,7 @@ const DefaultLayout: React.FC = ({ children }) => {
         description={SITE_CONFIG.description}
         titleTemplate={`%s ${SITE_CONFIG.titleSeparator} ${SITE_CONFIG.title}`}
       />
-
-      {children}
+      <div className="min-h-screen">{children}</div>
     </>
   );
 };
