@@ -220,9 +220,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@ginkoe/eslint-config@Ginkoe/eslint-config":
-  version "0.0.1"
-  resolved "git+ssh://git@github.com/Ginkoe/eslint-config.git#8abd66847f9a1450120d1f573a7a20c754a44480"
+"@ginkoe/eslint-config@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ginkoe/eslint-config/-/eslint-config-0.1.0.tgz#235ad629504fb694aa900183681b4b3a05b059a8"
+  integrity sha512-YCU09ugAAIIzZ7oTaiM0dKE/sSLUsPmG5OZPddYoQMgVL3BYuw6RP2e3Cg4vUO8TCnY+n+o5dgYU3uMMDlsV1w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.33.0"
     "@typescript-eslint/parser" "^4.33.0"

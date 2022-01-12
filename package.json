@@ -21,7 +21,7 @@
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
-    "@ginkoe/eslint-config": "Ginkoe/eslint-config",
+    "@ginkoe/eslint-config": "^0.1.0",
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
     "autoprefixer": "^10.4.2",
