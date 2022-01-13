@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'"
+    "lint:fix": "yarn eslint --fix '*/**/*.{js,ts,tsx}'"
   },
   "dependencies": {
     "@emotion/cache": "^11",
