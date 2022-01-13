@@ -1,7 +1,7 @@
 import type { SiteConfiguration } from "./types";
 
 export const SITE_CONFIG: SiteConfiguration = {
-  description: `Nimbleways's Opinionated Next.js boilerplate`,
+  description: `Nimbleways' Opinionated Next.js boilerplate`,
   title: "NimbleNext",
   titleSeparator: " · ",
 
