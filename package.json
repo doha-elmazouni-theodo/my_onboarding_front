@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "yarn eslint --fix '*/**/*.{js,ts,tsx}'"
+    "lint:fix": "yarn eslint --fix --ext .ts,.tsx,.js,.jsx ."
   },
   "dependencies": {
     "@emotion/cache": "^11",
@@ -21,7 +21,7 @@
     "react-redux": "^7.2.6"
   },
   "prettier": {
-    "endOfLine": "auto",
+    "endOfLine": "lf",
     "printWidth": 120,
     "semi": true,
     "singleQuote": false,
