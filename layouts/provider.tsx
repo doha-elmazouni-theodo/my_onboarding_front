@@ -7,10 +7,7 @@ interface LayoutProviderProps {
   layout?: LayoutType;
 }
 
-export const LayoutProvider: React.FC<LayoutProviderProps> = ({
-  children,
-  layout,
-}) => {
+export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children, layout }) => {
   const Layout = React.useMemo(() => layouts[layout ?? "default"], [layout]);
 
   return <Layout>{children}</Layout>;

@@ -5,9 +5,6 @@ type Data = {
   status: string;
 };
 
-export default function handler(
-  _req: NextApiRequest,
-  res: NextApiResponse<Data>
-): void {
+export default function handler(_req: NextApiRequest, res: NextApiResponse<Data>): void {
   res.status(200).json({ status: "alive" });
 }

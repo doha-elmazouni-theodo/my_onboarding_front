@@ -2,12 +2,7 @@ import * as React from "react";
 
 import { SITE_CONFIG } from "~config/site";
 import { useAppDispatch, useAppSelector } from "~store";
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  selectCount,
-} from "~store/counter/slice";
+import { decrement, increment, incrementByAmount, selectCount } from "~store/counter/slice";
 import type { NextPage } from "~types/next";
 
 import { NextSeo } from "next-seo";
@@ -36,11 +31,7 @@ const PlaygroundPage: NextPage = () => {
           }}
           type="number"
         />
-        <button
-          onClick={() => dispatch(incrementByAmount(Number(incrementAmount)))}
-        >
-          Increment by amount
-        </button>
+        <button onClick={() => dispatch(incrementByAmount(Number(incrementAmount)))}>Increment by amount</button>
       </div>
       <div>
         <button onClick={() => dispatch(decrement())}>Decrement by 1</button>

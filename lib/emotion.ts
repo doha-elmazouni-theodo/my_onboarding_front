@@ -13,5 +13,4 @@ const emotionCache = createCache({
 
 const emotionServer = createEmotionServer(emotionCache);
 
-export const extractCritical = (html: string): EmotionCritical =>
-  emotionServer.extractCritical(html);
+export const extractCritical = (html: string): EmotionCritical => emotionServer.extractCritical(html);

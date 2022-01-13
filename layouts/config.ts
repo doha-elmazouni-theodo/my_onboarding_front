@@ -7,8 +7,6 @@ export enum LayoutType {
 }
 
 export const layouts: Record<LayoutType, ComponentType> = {
-  [LayoutType.Default]: dynamic(
-    async () => import("~layouts/templates/default")
-  ),
+  [LayoutType.Default]: dynamic(async () => import("~layouts/templates/default")),
   [LayoutType.About]: dynamic(async () => import("~layouts/templates/about")),
 } as const;
