@@ -7,7 +7,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "yarn eslint --fix --ext .ts,.tsx,.js,.jsx .",
-    "commit": "git cz"
+    "commit": "git cz",
+    "generate": "plop"
   },
   "dependencies": {
     "@emotion/cache": "^11",
