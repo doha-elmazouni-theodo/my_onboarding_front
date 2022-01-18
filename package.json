@@ -4,11 +4,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:export": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "yarn eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "commit": "git cz",
     "test": "jest",
+    "test:coverage": "jest --coverage --maxWorkers=50%",
     "generate": "plop"
   },
   "dependencies": {
