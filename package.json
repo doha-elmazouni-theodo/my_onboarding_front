@@ -8,6 +8,7 @@
     "lint": "next lint",
     "lint:fix": "yarn eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "commit": "git cz",
+    "test": "jest",
     "generate": "plop"
   },
   "dependencies": {
