@@ -17,6 +17,9 @@ workflow:
     - if: '$CI_MERGE_REQUEST_IID'
     - if: '$CI_COMMIT_BRANCH =~ /^(main)$/'
 
+# Ideally this job should not be executed if the nodemodule cache exists
+# Waiting for a solution to this issue: https://gitlab.com/gitlab-org/gitlab/-/issues/224650
+# A partial workaround is to avoid reuploading cache if not updated by using "allow_failure"
 Install Deps:
   stage: install
   script:
@@ -48,6 +51,8 @@ Tests:
   script:
     - yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
     - yarn test:coverage --cacheDirectory .cicache/jest
+    - node reportCoverage.js coverage/coverage-summary.json
+  coverage: '/Code coverage: \d+\.\d+/'
   cache:
     - key:
         prefix: nodemodules-$CI_JOB_IMAGE
@@ -62,6 +67,13 @@ Tests:
           - yarn.lock
       paths:
         - .cicache
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - junit.xml
+      cobertura: coverage/cobertura-coverage.xml
+
 
 Build:
   stage: build
