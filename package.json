@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:export": "next build && next export",
+    "build": "next build --no-lint",
+    "build:export": "next build --no-lint && next export",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "yarn eslint --fix --ext .ts,.tsx,.js,.jsx .",
