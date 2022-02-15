@@ -1,5 +1,5 @@
 {
-  "name": "ginkoe.me",
+  "name": "nw-nextjs-boilerplate",
   "private": true,
   "scripts": {
     "dev": "next dev",
