@@ -1,5 +1,9 @@
-*.js    eol=lf
-*.jsx   eol=lf
-*.json  eol=lf
-*.ts    eol=lf
-*.tsx   eol=lf
+* text eol=lf
+*.cmd eol=crlf
+
+# List extensions to consider as binary
+*.ico binary
+*.png  binary
+*.jpg  binary
+*.gif  binary
+*.ttf  binary

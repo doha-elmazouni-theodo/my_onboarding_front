@@ -1,16 +1,16 @@
 {
-  "name": "ginkoe.me",
+  "name": "nw-nextjs-boilerplate",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:export": "next build && next export",
+    "build": "next build --no-lint",
+    "build:export": "next build --no-lint && next export",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "yarn eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "commit": "git cz",
     "test": "jest",
-    "test:coverage": "jest --coverage --maxWorkers=50%",
+    "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --reporters=jest-junit --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary",
     "generate": "plop"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11",
     "@reduxjs/toolkit": "^1.7.1",
+    "jest-junit": "^13.0.0",
     "next": "12.0.7",
     "next-seo": "^4.28.1",
     "react": "17.0.2",
