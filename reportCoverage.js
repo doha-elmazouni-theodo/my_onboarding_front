@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 "use strict";
 
 const fs = require("fs");
 
-if (process.argv.length != 3) {
+if (process.argv.length !== 3) {
   console.error("ERROR: This script takes exactly one argument");
   process.exit(1);
 }
@@ -15,8 +16,7 @@ if (!fs.existsSync(coverageFile)) {
 }
 const rawdata = fs.readFileSync(coverageFile);
 const coverageReport = JSON.parse(rawdata);
-let sum = 0;
 const coverageTotals = Object.values(coverageReport.total);
-coverageTotals.forEach((c) => (sum += c.pct));
+const sum = coverageTotals.reduce((prev, current) => prev + current.pct, 0);
 const coveragePct = (sum / coverageTotals.length).toLocaleString("en-US", { minimumFractionDigits: 2 });
 console.log("Code coverage:", coveragePct, "%");

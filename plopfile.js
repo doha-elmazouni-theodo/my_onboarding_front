@@ -43,7 +43,7 @@ const configGeneratorPage = {
   ],
 };
 
-module.exports = function (plop) {
+module.exports = function configure(plop) {
   plop.setGenerator("component", configGeneratorComponent);
   plop.setGenerator("page", configGeneratorPage);
 };
