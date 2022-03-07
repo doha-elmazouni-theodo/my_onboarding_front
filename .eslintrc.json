@@ -1,3 +1,6 @@
 {
-  "extends": ["plugin:@next/next/recommended", "@ginkoe/eslint-config"]
+  "extends": ["plugin:@next/next/recommended", "@ginkoe/eslint-config"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  }
 }
