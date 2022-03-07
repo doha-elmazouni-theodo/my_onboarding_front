@@ -14,8 +14,8 @@ stages:
 
 workflow:
   rules:
-    - if: '$CI_MERGE_REQUEST_IID'
-    - if: '$CI_COMMIT_BRANCH =~ /^(main)$/'
+    - if: "$CI_MERGE_REQUEST_IID"
+    - if: "$CI_COMMIT_BRANCH =~ /^(main)$/"
 
 # Ideally this job should not be executed if the nodemodule cache exists
 # Waiting for a solution to this issue: https://gitlab.com/gitlab-org/gitlab/-/issues/224650
@@ -44,7 +44,7 @@ Install Deps:
 
 Tests:
   rules:
-    - if: '$CI_MERGE_REQUEST_IID'
+    - if: "$CI_MERGE_REQUEST_IID"
   stage: test
   before_script:
     - test -d node_modules/ || yarn install --frozen-lockfile
@@ -73,7 +73,6 @@ Tests:
       junit:
         - junit.xml
       cobertura: coverage/cobertura-coverage.xml
-
 
 Build:
   stage: build

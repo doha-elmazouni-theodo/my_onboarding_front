@@ -14,10 +14,5 @@ module.exports = {
     "\\.(css|scss|less)$": "<rootDir>/__test__/styleMock.d.ts",
     "^~(.*)$": "<rootDir>/$1",
   },
-  collectCoverageFrom: [
-    "*/**/*.{js,jsx,ts,tsx}",
-    "!coverage/**",
-    "!**/node_modules/**",
-    "!**/.next/**"
-  ],
+  collectCoverageFrom: ["*/**/*.{js,jsx,ts,tsx}", "!coverage/**", "!**/node_modules/**", "!**/.next/**"],
 };

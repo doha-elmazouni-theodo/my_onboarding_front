@@ -1,49 +1,49 @@
 const configGeneratorComponent = {
-  description: 'this is next boilerplate component generator',
+  description: "this is next boilerplate component generator",
   prompts: [
     {
-      type: 'input',
-      name: 'name',
-      message: 'component name please',
+      type: "input",
+      name: "name",
+      message: "component name please",
     },
   ],
   actions: [
     {
-      type: 'add',
-      path: 'components/{{camelCase name}}/{{pascalCase name}}.tsx',
-      templateFile: '__plop__/ComponentReact.hbs',
+      type: "add",
+      path: "components/{{camelCase name}}/{{pascalCase name}}.tsx",
+      templateFile: "__plop__/ComponentReact.hbs",
     },
     {
-      type: 'add',
-      path: 'components/{{camelCase name}}/index.ts',
-      templateFile: '__plop__/index.hbs',
+      type: "add",
+      path: "components/{{camelCase name}}/index.ts",
+      templateFile: "__plop__/index.hbs",
     },
     {
-      type: 'add',
-      path: 'components/{{camelCase name}}/{{pascalCase name}}.style.ts',
+      type: "add",
+      path: "components/{{camelCase name}}/{{pascalCase name}}.style.ts",
     },
   ],
 };
 
 const configGeneratorPage = {
-  description: 'this is next boilerplate page generator',
+  description: "this is next boilerplate page generator",
   prompts: [
     {
-      type: 'input',
-      name: 'name',
-      message: 'page name please',
+      type: "input",
+      name: "name",
+      message: "page name please",
     },
   ],
   actions: [
     {
-      type: 'add',
-      path: 'pages/{{camelCase name}}.tsx',
-      templateFile: '__plop__/Page.hbs',
+      type: "add",
+      path: "pages/{{camelCase name}}.tsx",
+      templateFile: "__plop__/Page.hbs",
     },
   ],
 };
 
 module.exports = function (plop) {
-  plop.setGenerator('component', configGeneratorComponent);
-  plop.setGenerator('page', configGeneratorPage);
+  plop.setGenerator("component", configGeneratorComponent);
+  plop.setGenerator("page", configGeneratorPage);
 };
