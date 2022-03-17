@@ -15,4 +15,5 @@ module.exports = {
     "^~(.*)$": "<rootDir>/$1",
   },
   collectCoverageFrom: ["*/**/*.{js,jsx,ts,tsx}", "!coverage/**", "!**/node_modules/**", "!**/.next/**"],
+  snapshotSerializers: ["@emotion/jest/serializer"],
 };

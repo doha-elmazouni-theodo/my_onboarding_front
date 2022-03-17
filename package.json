@@ -34,6 +34,7 @@
     "trailingComma": "all"
   },
   "devDependencies": {
+    "@emotion/jest": "^11.8.0",
     "@ginkoe/eslint-config": "^0.1.0",
     "@testing-library/dom": "^8.11.2",
     "@testing-library/jest-dom": "^5.16.1",
