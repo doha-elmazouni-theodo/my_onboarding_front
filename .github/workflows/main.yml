@@ -1,0 +1,72 @@
+name: main next boilerplate
+on:
+  push:
+    branches: ['main']
+  pull_request:
+jobs:
+  build:
+    name: Test and Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+
+      - name: Get Node version
+        id: node-version
+        run: echo "::set-output name=version::$(node -v)"
+
+      - name: Cache node_modules
+        id: nodemodules-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-nodemodules-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/yarn.lock') }}
+          # No restore keys to generate the cache from scratch each time.
+
+      - name: Install Dependencies
+        if: steps.nodemodules-cache.outputs.cache-hit != 'true'
+        run: |
+          cp yarn.lock yarn.lock.orig
+          yarn install --frozen-lockfile --check-files --prefer-offline
+          # this check is necessary because --frozen-lockfile is buggy: yarn.lock will be updated if a "resolution" requires it
+          cmp -s yarn.lock yarn.lock.orig || { echo "::error file=yarn.lock::yarn.lock file is not up-to-date, please run a yarn install locally"; exit 1; }
+
+      - name: Cache CI files
+        id: ci-cache
+        uses: actions/cache@v2
+        with:
+          path: .cicache
+          key: ${{ runner.os }}-ci-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-ci-
+
+      - name: Test
+        run: |
+          yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+          yarn test:coverage --cacheDirectory .cicache/jest
+
+      - name: Report Coverage
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          github-token: ${{ github.token }}
+
+      - name: Cache Build files
+        id: build-cache
+        uses: actions/cache@v2
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-build-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Build
+        run: |
+          yarn build:export
