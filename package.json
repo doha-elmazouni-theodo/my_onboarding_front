@@ -10,7 +10,7 @@
     "lint:fix": "yarn lint --fix --ext .ts,.tsx,.js,.jsx",
     "commit": "git cz",
     "test": "jest",
-    "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --reporters=jest-junit --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary",
+    "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --reporters=jest-junit --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary --coverageReporters=lcov",
     "generate": "plop",
     "postinstall": "next telemetry disable"
   },
