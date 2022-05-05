@@ -2,5 +2,13 @@
   "extends": ["plugin:@next/next/recommended", "@ginkoe/eslint-config"],
   "parserOptions": {
     "ecmaVersion": "latest"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.{spec,test}.ts"],
+      "rules": {
+        "max-nested-callbacks": ["error", { "max": 4 }]
+      }
+    }
+  ]
 }
