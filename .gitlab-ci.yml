@@ -25,6 +25,7 @@ Install Deps:
   script:
     # node_modules exists => cache with key nodemodule+yarn.lock hash exists => node_modules up to date with yarn.lock
     - test -d node_modules/ && { echo "Skipping $CI_JOB_NAME, node_modules already up-to-date."; exit 207; }
+    - npx yarn-deduplicate --list --fail
     - cp yarn.lock yarn.lock.orig
     - yarn install --cache-folder .yarn --prefer-offline --frozen-lockfile
     # workaround for this bug: https://github.com/yarnpkg/yarn/issues/8513
