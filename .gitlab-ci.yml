@@ -26,8 +26,8 @@ Install Deps:
     # node_modules exists => cache with key nodemodule+yarn.lock hash exists => node_modules up to date with yarn.lock
     - test -d node_modules/ && { echo "Skipping $CI_JOB_NAME, node_modules already up-to-date."; exit 207; }
     - cp yarn.lock yarn.lock.orig
-    - yarn install --cache-folder .yarn --prefer-offline
-    # this check is necessary because --frozen-lockfile is buggy: yarn.lock will be updated if a "resolution" requires it
+    - yarn install --cache-folder .yarn --prefer-offline --frozen-lockfile
+    # workaround for this bug: https://github.com/yarnpkg/yarn/issues/8513
     - cmp -s yarn.lock yarn.lock.orig || { echo "yarn.lock file is not up-to-date, please run a yarn install locally"; exit 1; }
   allow_failure:
     exit_codes: 207
