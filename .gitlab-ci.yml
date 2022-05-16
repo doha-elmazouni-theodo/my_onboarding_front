@@ -28,7 +28,7 @@ Install Deps:
     - cp yarn.lock yarn.lock.orig
     - yarn install --cache-folder .yarn --prefer-offline --frozen-lockfile
     # workaround for this bug: https://github.com/yarnpkg/yarn/issues/8513
-    - cmp -s yarn.lock yarn.lock.orig || { echo "yarn.lock file is not up-to-date, please run a yarn install locally"; exit 1; }
+    - cmp -s yarn.lock yarn.lock.orig || { echo "yarn.lock file is not up-to-date, please run a yarn install locally or check the changed yarn.lock file in the artifacts"; exit 1; }
   allow_failure:
     exit_codes: 207
   cache:
@@ -41,6 +41,10 @@ Install Deps:
           - yarn.lock
       paths:
         - node_modules
+  artifacts:
+    when: on_failure
+    paths:
+      - yarn.lock
 
 Tests:
   rules:
