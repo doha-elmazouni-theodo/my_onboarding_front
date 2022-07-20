@@ -82,6 +82,10 @@ Tests:
         path: coverage/cobertura-coverage.xml
 
 Build:
+  variables:
+    NEXT_PUBLIC_BUILD_ID: $CI_JOB_ID
+    NEXT_PUBLIC_BUILD_DATE: $CI_JOB_STARTED_AT
+    NEXT_PUBLIC_BUILD_SHA: $CI_COMMIT_SHA
   stage: build
   before_script:
     - test -d node_modules/ || yarn install --frozen-lockfile
