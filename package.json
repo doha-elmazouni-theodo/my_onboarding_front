@@ -12,7 +12,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --reporters=jest-junit --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary --coverageReporters=lcov",
     "generate": "plop",
-    "postinstall": "next telemetry disable"
+    "prepare": "next telemetry disable && husky install"
   },
   "dependencies": {
     "@emotion/cache": "^11",
@@ -50,7 +50,9 @@
     "eslint-config-next": "12.0.7",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "git-cz": "^4.8.0",
+    "husky": "^8.0.1",
     "jest": "^27.4.7",
+    "lint-staged": "^13.0.3",
     "next-http-proxy-middleware": "^1.2.4",
     "plop": "^3.0.5",
     "postcss": "^8.4.5",
