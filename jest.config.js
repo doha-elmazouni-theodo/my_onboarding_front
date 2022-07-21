@@ -9,7 +9,7 @@ module.exports = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
   },
-  testMatch: ["**/*.{spec,test}.{js,jsx,ts,tsx}"],
+  testMatch: ["**/*.{spec,test,snap}.{js,jsx,ts,tsx}"],
   moduleNameMapper: {
     "\\.(css|scss|less)$": "<rootDir>/__test__/styleMock.d.ts",
     "^~(.*)$": "<rootDir>/$1",

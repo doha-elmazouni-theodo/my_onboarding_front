@@ -55,6 +55,7 @@ Tests:
     - test -d node_modules/ || yarn install --frozen-lockfile
   script:
     - yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+    - yarn test:snap --cacheDirectory .cicache/jest-snap
     - yarn test:coverage --cacheDirectory .cicache/jest
     - node reportCoverage.js coverage/coverage-summary.json
   coverage: '/Code coverage: \d+\.\d+/'

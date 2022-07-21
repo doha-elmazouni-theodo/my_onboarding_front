@@ -50,6 +50,7 @@ jobs:
       - name: Test
         run: |
           yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+          yarn test:snap --cacheDirectory .cicache/jest-snap
           yarn test:coverage --cacheDirectory .cicache/jest
 
       - name: Report Coverage
