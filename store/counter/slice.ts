@@ -4,7 +4,7 @@ import type { RootState } from "~store/types";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
-export type CounterState = {
+type CounterState = {
   value: number;
 };
 
@@ -12,7 +12,7 @@ const initialState: CounterState = {
   value: 0,
 };
 
-export const counterSlice = createSlice({
+const counterSlice = createSlice({
   name: "counter",
   initialState,
 

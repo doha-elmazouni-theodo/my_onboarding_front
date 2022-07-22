@@ -6,7 +6,7 @@ import type {
   NextPageContext as BaseNextPageContext,
 } from "next";
 
-export type NextPageProps = {
+type NextPageProps = {
   layout?: LayoutType;
 };
 export type NextPage<P = {}, IP = P> = BaseNextPage<P, IP> & NextPageProps;
