@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-nodemodules-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-nodemodules-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/package.json', '**/yarn.lock') }}
           # No restore keys to generate the cache from scratch each time.
 
       - name: Install Dependencies
