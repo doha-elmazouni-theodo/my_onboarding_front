@@ -14,7 +14,7 @@ const Banner3S: React.FC<Banner3SProps> = ({ title, doc, children }) => (
       <p className="leading-relaxed text-base mb-4">{children}</p>
     </section>
 
-    <a href={doc} target="_blank" className="text-red-500 inline-flex items-center">
+    <a href={doc} target="_blank" rel="noreferrer" className="text-red-500 inline-flex items-center">
       Learn More
       <ArrowRightIcon />
     </a>

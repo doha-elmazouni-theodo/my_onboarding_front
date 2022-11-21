@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 
-import React from "react";
+import React, { StrictMode } from "react";
 
 import { LayoutProvider } from "~layouts";
 import { StoreProvider } from "~store/provider";
@@ -15,11 +15,13 @@ interface CustomAppProps extends AppProps {
 
 const MyApp: React.FC<CustomAppProps> = ({ Component, pageProps }) => {
   return (
-    <StoreProvider>
-      <LayoutProvider layout={Component.layout}>
-        <Component {...pageProps} />
-      </LayoutProvider>
-    </StoreProvider>
+    <StrictMode>
+      <StoreProvider>
+        <LayoutProvider layout={Component.layout}>
+          <Component {...pageProps} />
+        </LayoutProvider>
+      </StoreProvider>
+    </StrictMode>
   );
 };
 

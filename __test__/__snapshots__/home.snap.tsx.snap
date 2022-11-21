@@ -44,6 +44,7 @@ exports[`Testing page example should render home 1`] = `
             <a
               class="text-red-500 inline-flex items-center"
               href="https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#77f96802a1954504a71ca6480f609c50"
+              rel="noreferrer"
               target="_blank"
             >
               Learn More
@@ -80,6 +81,7 @@ exports[`Testing page example should render home 1`] = `
             <a
               class="text-red-500 inline-flex items-center"
               href="https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#becfbc6cab35431fbef11110c9b34546"
+              rel="noreferrer"
               target="_blank"
             >
               Learn More
@@ -116,6 +118,7 @@ exports[`Testing page example should render home 1`] = `
             <a
               class="text-red-500 inline-flex items-center"
               href="https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#b9184c326e2c48d6a696ecd59f64328f"
+              rel="noreferrer"
               target="_blank"
             >
               Learn More

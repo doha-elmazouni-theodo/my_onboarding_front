@@ -28,7 +28,7 @@ const Home: NextPage = () => {
                 "https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#77f96802a1954504a71ca6480f609c50"
               }
             >
-              Le produit ne doit pas présenter de bugs impactant l'expérience utilisateur.
+              Le produit ne doit pas présenter de bugs impactant l&apos;expérience utilisateur.
             </Banner3S>
             <Banner3S
               title="Security"
