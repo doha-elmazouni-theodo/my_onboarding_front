@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@emotion/jest": "^11.8.0",
-    "@ginkoe/eslint-config": "^0.1.0",
+    "@nimbleways/eslint-config": "^0.1.1",
     "@testing-library/dom": "^8.11.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

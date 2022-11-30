@@ -542,21 +542,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@ginkoe/eslint-config@^0.1.0":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@ginkoe/eslint-config/-/eslint-config-0.1.1.tgz#2fc7ee31c7e23d3df7b83d6f1348c43ee2102a88"
-  integrity sha512-p6q95t+tDT0aGGs8nWbrcOPTuGTfAsJ9i6Zz3rYOweOX3r+lOo7fg0aj5B8KmGx7hjZPzNNDxOsSvHsO1Q/6kw==
-  dependencies:
-    "@typescript-eslint/eslint-plugin" "^4.33.0"
-    "@typescript-eslint/parser" "^4.33.0"
-    eslint-config-prettier "^8.3.0"
-    eslint-plugin-prettier "^4.0.0"
-    eslint-plugin-react "^7.28.0"
-    eslint-plugin-react-func "^0.1.17"
-    eslint-plugin-simple-import-sort "^7.0.0"
-    loadash "^1.0.0"
-    typescript "^4.5.4"
-
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.2.tgz#ab7043b037e68b722f93f376afb05e85c0699523"
@@ -874,6 +859,21 @@
   version "12.0.7"
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.0.7.tgz#8d75d3b6a872ab97ab73e3b4173d56dbb2991917"
   integrity sha512-frEWtbf+q8Oz4e2UqKJrNssk6DZ6/NLCQXn5/ORWE9dPAfe9XS6aK5FRZ6DuEPmmKd5gOoRkKJFFz5nYd+TeyQ==
+
+"@nimbleways/eslint-config@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@nimbleways/eslint-config/-/eslint-config-0.1.1.tgz#762d2e343e77175136bf7b15ee813a8d76807d92"
+  integrity sha512-3d8OL6zR1zI4I6LWF2wj2Vz1dsFllmsusBfSgIYHg6yDsUmTzfkKufyPwXvWOmIEuWnILdr4PvvRxu9uPC/86w==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^4.33.0"
+    "@typescript-eslint/parser" "^4.33.0"
+    eslint-config-prettier "^8.3.0"
+    eslint-plugin-prettier "^4.0.0"
+    eslint-plugin-react "^7.28.0"
+    eslint-plugin-react-func "^0.1.17"
+    eslint-plugin-simple-import-sort "^7.0.0"
+    loadash "^1.0.0"
+    typescript "^4.5.4"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

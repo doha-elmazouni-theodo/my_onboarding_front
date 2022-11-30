@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "@ginkoe/eslint-config", "plugin:jsx-a11y/recommended"],
+  "extends": ["next/core-web-vitals", "@nimbleways/eslint-config", "plugin:jsx-a11y/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
