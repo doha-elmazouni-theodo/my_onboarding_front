@@ -17,61 +17,63 @@ workflow:
     - if: "$CI_MERGE_REQUEST_IID"
     - if: "$CI_COMMIT_BRANCH =~ /^(main)$/"
 
+before_script:
+  - npm i -g pnpm
+  - pnpm config set store-dir .pnpm-store
+
 # Ideally this job should not be executed if the nodemodule cache exists
 # Waiting for a solution to this issue: https://gitlab.com/gitlab-org/gitlab/-/issues/224650
 # A partial workaround is to avoid reuploading cache if not updated by using "allow_failure"
 Install Deps:
   stage: install
   script:
-    # node_modules exists => cache with key nodemodule+yarn.lock hash exists => node_modules up to date with yarn.lock
+    # node_modules exists => cache with key nodemodule+pnpm-lock.yaml hash exists => node_modules up to date with pnpm-lock.yaml
     - test -d node_modules/ && { echo "Skipping $CI_JOB_NAME, node_modules already up-to-date."; exit 207; }
-    - npx yarn-deduplicate --list --fail
-    - cp yarn.lock yarn.lock.orig
-    - yarn install --cache-folder .yarn --prefer-offline --frozen-lockfile
-    # workaround for this bug: https://github.com/yarnpkg/yarn/issues/8513
-    - cmp -s yarn.lock yarn.lock.orig || { echo "yarn.lock file is not up-to-date, please run a yarn install locally or check the changed yarn.lock file in the artifacts"; exit 1; }
+    - pnpm install --prefer-offline --frozen-lockfile
   allow_failure:
     exit_codes: 207
   cache:
-    - key: yarncache-$CI_JOB_IMAGE
+    - key: pnpmcache-$CI_JOB_IMAGE
       paths:
-        - .yarn
+        - .pnpm-store
     - key:
         prefix: nodemodules-$CI_JOB_IMAGE
         files:
-          - yarn.lock
+          - pnpm-lock.yaml
       paths:
         - node_modules
   artifacts:
     when: on_failure
     paths:
-      - yarn.lock
+      - pnpm-lock.yaml
 
 Tests:
   rules:
     - if: "$CI_MERGE_REQUEST_IID"
   stage: test
   before_script:
-    - test -d node_modules/ || yarn install --frozen-lockfile
+    - npm i -g pnpm
+    - pnpm config set store-dir .pnpm-store
+    - test -d node_modules/ || pnpm install --frozen-lockfile
   script:
-    - yarn check-unused-exports
-    - yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
-    - yarn test:snap --cacheDirectory .cicache/jest-snap
-    - yarn test:coverage --cacheDirectory .cicache/jest
+    - pnpm check-unused-exports
+    - pnpm lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+    - pnpm test:snap --cacheDirectory .cicache/jest-snap
+    - pnpm test:coverage --cacheDirectory .cicache/jest
     - node reportCoverage.js coverage/coverage-summary.json
   coverage: '/Code coverage: \d+\.\d+/'
   cache:
     - key:
         prefix: nodemodules-$CI_JOB_IMAGE
         files:
-          - yarn.lock
+          - pnpm-lock.yaml
       paths:
         - node_modules
       policy: pull
     - key:
         prefix: cicache-$CI_JOB_IMAGE
         files:
-          - yarn.lock
+          - pnpm-lock.yaml
       paths:
         - .cicache
   artifacts:
@@ -90,9 +92,11 @@ Build:
     NEXT_PUBLIC_BUILD_SHA: $CI_COMMIT_SHA
   stage: build
   before_script:
-    - test -d node_modules/ || yarn install --frozen-lockfile
+    - npm i -g pnpm
+    - pnpm config set store-dir .pnpm-store
+    - test -d node_modules/ || pnpm install --frozen-lockfile
   script:
-    - yarn build:export
+    - pnpm build:export
   artifacts:
     paths:
       - out
@@ -101,7 +105,7 @@ Build:
     - key:
         prefix: nodemodules-$CI_JOB_IMAGE
         files:
-          - yarn.lock
+          - pnpm-lock.yaml
       paths:
         - node_modules
       policy: pull

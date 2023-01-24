@@ -12,11 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install pnpm
+        run: |
+          npm i -g pnpm
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
-          cache: 'yarn'
+          node-version: '18'
+          cache: 'pnpm'
 
       - name: Get Node version
         id: node-version
@@ -27,32 +31,29 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-nodemodules-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/package.json', '**/yarn.lock') }}
+          key: ${{ runner.os }}-nodemodules-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/package.json', '**/pnpm-lock.yaml') }}
           # No restore keys to generate the cache from scratch each time.
 
       - name: Install Dependencies
         if: steps.nodemodules-cache.outputs.cache-hit != 'true'
         run: |
-          cp yarn.lock yarn.lock.orig
-          yarn install --frozen-lockfile --check-files --prefer-offline
-          # this check is necessary because --frozen-lockfile is buggy: yarn.lock will be updated if a "resolution" requires it
-          cmp -s yarn.lock yarn.lock.orig || { echo "::error file=yarn.lock::yarn.lock file is not up-to-date, please run a yarn install locally"; exit 1; }
+          pnpm install --frozen-lockfile --prefer-offline
 
       - name: Cache CI files
         id: ci-cache
         uses: actions/cache@v2
         with:
           path: .cicache
-          key: ${{ runner.os }}-ci-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-ci-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-ci-
 
       - name: Test
         run: |
-          yarn check-unused-exports
-          yarn lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
-          yarn test:snap --cacheDirectory .cicache/jest-snap
-          yarn test:coverage --cacheDirectory .cicache/jest
+          pnpm check-unused-exports
+          pnpm lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+          pnpm test:snap --cacheDirectory .cicache/jest-snap
+          pnpm test:coverage --cacheDirectory .cicache/jest
 
       - name: Report Coverage
         uses: romeovs/lcov-reporter-action@v0.2.21
@@ -65,7 +66,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .next/cache
-          key: ${{ runner.os }}-build-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
@@ -76,4 +77,4 @@ jobs:
           NEXT_PUBLIC_BUILD_DATE: $(date --utc +'%Y-%m-%dT%H:%M:%SZ')
           NEXT_PUBLIC_BUILD_SHA: $GITHUB_SHA
         run: |
-          yarn build:export
+          pnpm build:export

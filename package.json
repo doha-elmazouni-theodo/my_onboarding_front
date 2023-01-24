@@ -14,6 +14,7 @@
     "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary --coverageReporters=lcov --testMatch='**/*.{spec,test}.{js,jsx,ts,tsx}'",
     "check-unused-exports": "ts-unused-exports tsconfig.json --excludePathsFromReport=pages --ignoreFiles=\"\\.(test|snap|spec)$\"",
     "generate": "plop",
+    "preinstall": "npx -y only-allow pnpm",
     "prepare": "next telemetry disable && husky install"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "trailingComma": "all"
   },
   "devDependencies": {
+    "@babel/core": ">=7.0.0 <8.0.0",
     "@emotion/jest": "^11.8.0",
     "@nimbleways/eslint-config": "^0.1.1",
     "@testing-library/dom": "^8.11.2",
@@ -46,6 +48,7 @@
     "@types/jest": "^27.4.0",
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
+    "@types/react-redux": "^7.1.25",
     "autoprefixer": "^10.4.2",
     "commitizen": "^4.2.4",
     "eslint": "^7",
