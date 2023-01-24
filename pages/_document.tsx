@@ -5,14 +5,14 @@ import { extractCritical } from "~lib/emotion";
 import type { DocumentContext, DocumentInitialProps } from "next/document";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? "";
+const BUILD_ID = process.env["NEXT_PUBLIC_BUILD_ID"] ?? "";
 
-const BUILD_DATE = process.env.NEXT_PUBLIC_BUILD_DATE ?? "";
+const BUILD_DATE = process.env["NEXT_PUBLIC_BUILD_DATE"] ?? "";
 
-const BUILD_SHA = process.env.NEXT_PUBLIC_BUILD_SHA ?? "";
+const BUILD_SHA = process.env["NEXT_PUBLIC_BUILD_SHA"] ?? "";
 
 export default class AppDocument extends Document {
-  public static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+  public static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
     const styles = extractCritical(initialProps.html);
     return {
@@ -29,7 +29,7 @@ export default class AppDocument extends Document {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  public render(): JSX.Element {
+  public override render(): JSX.Element {
     return (
       <Html lang="en">
         <Head>

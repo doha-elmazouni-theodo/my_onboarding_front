@@ -4,7 +4,7 @@ import type { LayoutType } from "./config";
 import { layouts } from "./config";
 
 interface LayoutProviderProps {
-  layout?: LayoutType;
+  layout?: LayoutType | undefined;
 }
 
 export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children, layout }) => {
