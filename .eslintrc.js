@@ -1,0 +1,24 @@
+// @ts-check
+
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  extends: ["next/core-web-vitals", "@nimbleways/eslint-config", "plugin:jsx-a11y/recommended"],
+  parserOptions: {
+    ecmaVersion: "latest",
+  },
+  overrides: [
+    {
+      files: ["*.{spec,test}.{ts,tsx}"],
+      rules: {
+        "max-nested-callbacks": ["error", { max: 4 }],
+        "no-restricted-syntax": [
+          "error",
+          {
+            selector: "CallExpression[callee.property.name='toMatchSnapshot']",
+            message: "Unexpected toMatchSnapshot",
+          },
+        ],
+      },
+    },
+  ],
+};

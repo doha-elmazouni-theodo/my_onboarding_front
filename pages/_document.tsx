@@ -3,7 +3,7 @@ import * as React from "react";
 import { extractCritical } from "~lib/emotion";
 
 import type { DocumentContext, DocumentInitialProps } from "next/document";
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import NextDocument, { Head, Html, Main, NextScript } from "next/document";
 
 const BUILD_ID = process.env["NEXT_PUBLIC_BUILD_ID"] ?? "";
 
@@ -11,9 +11,9 @@ const BUILD_DATE = process.env["NEXT_PUBLIC_BUILD_DATE"] ?? "";
 
 const BUILD_SHA = process.env["NEXT_PUBLIC_BUILD_SHA"] ?? "";
 
-export default class AppDocument extends Document {
+export default class AppDocument extends NextDocument {
   public static override async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
-    const initialProps = await Document.getInitialProps(ctx);
+    const initialProps = await NextDocument.getInitialProps(ctx);
     const styles = extractCritical(initialProps.html);
     return {
       ...initialProps,
