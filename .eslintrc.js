@@ -2,7 +2,7 @@
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["next/core-web-vitals", "@nimbleways/eslint-config", "plugin:jsx-a11y/recommended"],
+  extends: ["next/core-web-vitals", "@nimbleways/eslint-config"],
   parserOptions: {
     ecmaVersion: "latest",
   },
@@ -10,7 +10,6 @@ module.exports = {
     {
       files: ["*.{spec,test}.{ts,tsx}"],
       rules: {
-        "max-nested-callbacks": ["error", { max: 4 }],
         "no-restricted-syntax": [
           "error",
           {

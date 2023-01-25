@@ -15,7 +15,7 @@ const DefaultLayout: React.FC = ({ children }) => {
       </Head>
 
       <DefaultSeo
-        canonical={SITE_CONFIG.siteUrl + (router.asPath || "")}
+        canonical={SITE_CONFIG.siteUrl + router.asPath}
         defaultTitle={SITE_CONFIG.title}
         description={SITE_CONFIG.description}
         titleTemplate={`%s ${SITE_CONFIG.titleSeparator} ${SITE_CONFIG.title}`}

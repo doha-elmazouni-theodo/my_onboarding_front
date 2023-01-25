@@ -16,7 +16,7 @@ export const config = {
 // The alternative is setting the rewrite ourself with the help of next-http-proxy-middleware
 async function handler(req: NextApiRequest, res: NextApiResponse): Promise<unknown> {
   if (isDevelopment) {
-    if (req.url?.startsWith("/api/")) {
+    if (req.url?.startsWith("/api/") === true) {
       return httpProxyMiddleware(req, res, {
         target: "https://localhost:7216", // replace with your backend base url
         secure: false,
