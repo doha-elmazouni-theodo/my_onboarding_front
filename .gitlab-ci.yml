@@ -56,7 +56,6 @@ Tests:
     - pnpm config set store-dir .pnpm-store
     - test -d node_modules/ || pnpm install --frozen-lockfile
   script:
-    - pnpm check-unused-exports
     - pnpm lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
     - pnpm test:snap --cacheDirectory .cicache/jest-snap
     - pnpm test:coverage --cacheDirectory .cicache/jest

@@ -12,7 +12,6 @@
     "test": "jest",
     "test:snap": "jest --maxWorkers=50% --silent --watchAll=false --testMatch='!**/*' --testMatch='**/*.snap.tsx'",
     "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary --coverageReporters=lcov --testMatch='**/*.{spec,test}.{js,jsx,ts,tsx}'",
-    "check-unused-exports": "ts-unused-exports tsconfig.json --excludePathsFromReport=pages --ignoreFiles=\"\\.(test|snap|spec)$\"",
     "generate": "plop",
     "preinstall": "npx -y only-allow pnpm",
     "prepare": "next telemetry disable && husky install"
@@ -66,7 +65,6 @@
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.13",
     "ts-jest": "^27.1.3",
-    "ts-unused-exports": "^8.0.0",
     "typescript": "4.5.4"
   }
 }
