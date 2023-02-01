@@ -6,7 +6,7 @@ export enum LayoutType {
   About = "about",
 }
 
-export const layouts: Record<LayoutType, ComponentType> = {
+export const layouts: Record<LayoutType, ComponentType<React.PropsWithChildren>> = {
   [LayoutType.Default]: dynamic(async () => import("~layouts/templates/default")),
   [LayoutType.About]: dynamic(async () => import("~layouts/templates/about")),
 } as const;

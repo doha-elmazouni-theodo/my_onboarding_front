@@ -6,7 +6,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
-const DefaultLayout: React.FC = ({ children }) => {
+const DefaultLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const router = useRouter();
   return (
     <>
