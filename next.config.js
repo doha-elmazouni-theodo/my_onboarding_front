@@ -23,6 +23,7 @@ const metaDataHeaders = [
 module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
+  trailingSlash: true,
   async headers() {
     return [
       {
