@@ -77,3 +77,6 @@ jobs:
           NEXT_PUBLIC_BUILD_SHA: $GITHUB_SHA
         run: |
           pnpm build:export
+
+      - name: Check assets sizes
+        run: pnpm check-filesize
