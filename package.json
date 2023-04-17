@@ -1,6 +1,9 @@
 {
   "name": "nw-nextjs-boilerplate",
   "private": true,
+  "engines": {
+    "pnpm": ">=8.2"
+  },
   "scripts": {
     "dev": "pnpm check-filesize && next dev",
     "build": "next build --no-lint",
