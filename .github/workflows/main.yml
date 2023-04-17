@@ -14,7 +14,8 @@ jobs:
 
       - name: Install pnpm
         run: |
-          npm i -g pnpm
+          PNPM_SEMVER=`jq -r ".engines.pnpm" package.json`
+          npm i -g pnpm@"${PNPM_SEMVER}" && pnpm --version
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -26,16 +27,7 @@ jobs:
         id: node-version
         run: echo "::set-output name=version::$(node -v)"
 
-      - name: Cache node_modules
-        id: nodemodules-cache
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-nodemodules-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/package.json', '**/pnpm-lock.yaml') }}
-          # No restore keys to generate the cache from scratch each time.
-
       - name: Install Dependencies
-        if: steps.nodemodules-cache.outputs.cache-hit != 'true'
         run: |
           pnpm install --frozen-lockfile --prefer-offline
 

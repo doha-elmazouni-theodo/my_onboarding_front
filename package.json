@@ -2,7 +2,8 @@
   "name": "nw-nextjs-boilerplate",
   "private": true,
   "engines": {
-    "pnpm": ">=8.2"
+    "pnpm": "~8",
+    "node": ">=16.14"
   },
   "scripts": {
     "dev": "pnpm check-filesize && next dev",
