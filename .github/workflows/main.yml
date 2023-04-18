@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install pnpm
         run: |
@@ -18,7 +18,7 @@ jobs:
           npm i -g pnpm@"${PNPM_SEMVER}" && pnpm --version
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'pnpm'
@@ -33,7 +33,7 @@ jobs:
 
       - name: Cache CI files
         id: ci-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .cicache
           key: ${{ runner.os }}-ci-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -54,7 +54,7 @@ jobs:
 
       - name: Cache Build files
         id: build-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .next/cache
           key: ${{ runner.os }}-build-${{ steps.node-version.outputs.version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
