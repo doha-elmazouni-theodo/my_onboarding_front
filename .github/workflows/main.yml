@@ -40,6 +40,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-ci-
 
+      - name: Check package.json
+        run: |
+          echo Checking if package.json is normalized by installing and removing a new package
+          pnpm i --loglevel warn --ignore-scripts dedupe@4.0.1
+          pnpm rm --loglevel warn dedupe
+          git diff --exit-code package.json pnpm-lock.yaml || (echo Your package.json or pnpm-lock.yaml file is not normalize. Did you add a package manually without pnpm ? && exit 1)
+
       - name: Test
         run: |
           pnpm lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
