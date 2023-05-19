@@ -2,6 +2,7 @@ import "../styles/globals.css";
 
 import React, { StrictMode } from "react";
 
+import { TranslationProvider } from "~i18n/TranslationProvider";
 import { LayoutProvider } from "~layouts";
 import { StoreProvider } from "~store/provider";
 import type { NextComponentType } from "~types/next";
@@ -21,13 +22,15 @@ const MyApp: React.FC<CustomAppProps> = ({ Component, pageProps }) => {
   return (
     <StrictMode>
       <StoreProvider>
-        <SnackbarProvider ref={notistackRef} maxSnack={2}>
-          <QueryClientProvider client={queryClient}>
-            <LayoutProvider layout={Component.layout}>
-              <Component {...pageProps} />
-            </LayoutProvider>
-          </QueryClientProvider>
-        </SnackbarProvider>
+        <TranslationProvider>
+          <SnackbarProvider ref={notistackRef} maxSnack={2}>
+            <QueryClientProvider client={queryClient}>
+              <LayoutProvider layout={Component.layout}>
+                <Component {...pageProps} />
+              </LayoutProvider>
+            </QueryClientProvider>
+          </SnackbarProvider>
+        </TranslationProvider>
       </StoreProvider>
     </StrictMode>
   );

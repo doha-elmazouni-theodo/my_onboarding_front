@@ -1,0 +1,7 @@
+{
+  "common": {
+    "changeLanguage": "Change language",
+    "labelExample": "text example",
+    "labelExampleFormatted": "example <underline>formatted</underline> text"
+  }
+}

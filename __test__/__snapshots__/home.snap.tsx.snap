@@ -138,6 +138,32 @@ exports[`Testing page example should render home 1`] = `
             </a>
           </div>
         </div>
+        <div
+          class="flex flex-col w-full mb-20 text-center"
+        >
+          <h2
+            class="mb-1 text-s font-medium tracking-widest text-red-500 "
+          >
+            <button
+              class="btn btn-blue"
+            >
+              Changer la language
+            </button>
+          </h2>
+          <h1
+            class="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font"
+          >
+            <h2>
+              example de texte
+            </h2>
+            <h2>
+              exemple de texte 
+              <u>
+                formaté
+              </u>
+            </h2>
+          </h1>
+        </div>
       </div>
     </section>
   </div>

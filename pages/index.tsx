@@ -1,12 +1,17 @@
-import React from "react";
-
 import Banner3S from "~components/landing/banner3s";
 import { SITE_CONFIG } from "~config/site";
+import i18n, { changeLanguage } from "~i18n/i18n";
+import TranslateMessage from "~i18n/TranslateMessage";
+import txKeys from "~i18n/translations";
+import { Language } from "~i18n/types";
+import { useTranslation } from "~i18n/useTranslation";
 import type { NextPage } from "~types/next";
 
 import { NextSeo } from "next-seo";
 
 const Home: NextPage = () => {
+  const translate = useTranslation();
+
   return (
     <div>
       <NextSeo title="Home" />
@@ -46,6 +51,25 @@ const Home: NextPage = () => {
             >
               Le produit doit être au standard sur la performance. Ca inclut la vitesse de chargement et la scalabilité.
             </Banner3S>
+          </div>
+
+          <div className="flex flex-col w-full mb-20 text-center">
+            <h2 className="mb-1 text-s font-medium tracking-widest text-red-500 ">
+              <button
+                className="btn btn-blue"
+                onClick={() => {
+                  changeLanguage(i18n.language === Language.FR ? Language.EN : Language.FR);
+                }}
+              >
+                {translate(txKeys.common.changeLanguage)}
+              </button>
+            </h2>
+            <h1 className="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
+              <h2>{translate(txKeys.common.labelExample)}</h2>
+              <h2>
+                <TranslateMessage txKey={txKeys.common.labelExampleFormatted} components={{ underline: <u /> }} />
+              </h2>
+            </h1>
           </div>
         </div>
       </section>
