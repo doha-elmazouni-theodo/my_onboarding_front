@@ -14,8 +14,8 @@ jobs:
 
       - name: Install pnpm
         run: |
-          PNPM_SEMVER=`jq -r ".engines.pnpm" package.json`
-          npm i -g pnpm@"${PNPM_SEMVER}" && pnpm --version
+          corepack enable pnpm
+          pnpm --version
 
       - name: Setup Node.js
         uses: actions/setup-node@v3

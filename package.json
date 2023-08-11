@@ -1,6 +1,7 @@
 {
   "name": "nw-nextjs-boilerplate",
   "private": true,
+  "packageManager": "pnpm@8.6.2",
   "engines": {
     "pnpm": "=8.6.2",
     "node": ">=16.14"
