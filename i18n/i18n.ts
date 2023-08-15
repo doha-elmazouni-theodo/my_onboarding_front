@@ -41,14 +41,21 @@ const i18nInitializer = (): i18nApi => {
       },
     })
     .then(undefined)
-    .catch(undefined);
+    .catch((error) => {
+      console.error("error", error);
+    });
 
   return i18next;
 };
 const i18n = i18nInitializer();
 
 export const changeLanguage = (lng: Language): void => {
-  i18n.changeLanguage(lng).then(undefined).catch(undefined);
+  i18n
+    .changeLanguage(lng)
+    .then(undefined)
+    .catch((error) => {
+      console.error("error", error);
+    });
 };
 
 export default i18n;
