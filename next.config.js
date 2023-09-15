@@ -1,9 +1,21 @@
+const { createSecureHeaders } = require("next-secure-headers");
+
 /** @type {import('next').NextConfig} */
 const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID || "";
 
 const BUILD_DATE = process.env.NEXT_PUBLIC_BUILD_DATE || "";
 
 const BUILD_SHA = process.env.NEXT_PUBLIC_BUILD_SHA || "";
+const contentSecurityPolicy = {
+  directives: {
+    defaultSrc: "'self'",
+    scriptSrc: "'self' 'unsafe-eval'",
+    childSrc: "'self' https://*",
+    styleSrc: "'self' https://*",
+    fontSrc: "'self'",
+    styleSrcElem: "'unsafe-inline'",
+  },
+};
 
 const metaDataHeaders = [
   {
@@ -29,7 +41,12 @@ module.exports = {
       {
         // Apply these headers to all routes in your application.
         source: "/:path*",
-        headers: [...metaDataHeaders],
+        headers: [
+          ...metaDataHeaders,
+          ...createSecureHeaders({
+            contentSecurityPolicy,
+          }),
+        ],
       },
     ];
   },

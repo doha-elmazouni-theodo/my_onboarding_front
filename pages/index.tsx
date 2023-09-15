@@ -64,12 +64,12 @@ const Home: NextPage = () => {
                 {translate(txKeys.common.changeLanguage)}
               </button>
             </h2>
-            <h1 className="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
+            <div className="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
               <h2>{translate(txKeys.common.labelExample)}</h2>
               <h2>
                 <TranslateMessage txKey={txKeys.common.labelExampleFormatted} components={{ underline: <u /> }} />
               </h2>
-            </h1>
+            </div>
           </div>
         </div>
       </section>

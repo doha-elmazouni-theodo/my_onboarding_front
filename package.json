@@ -35,6 +35,7 @@
     "i18next-browser-languagedetector": "^7.0.1",
     "jest-junit": "^15.0.0",
     "next": "13.4.2",
+    "next-secure-headers": "^2.2.0",
     "next-seo": "^5.15.0",
     "notistack": "^2.0.8",
     "query-string": "^7.1.1",
