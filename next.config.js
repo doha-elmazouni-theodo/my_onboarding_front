@@ -13,7 +13,7 @@ const contentSecurityPolicy = {
     childSrc: "'self' https://*",
     styleSrc: "'self' https://*",
     fontSrc: "'self'",
-    styleSrcElem: "'unsafe-inline'",
+    styleSrcElem: "'self' 'unsafe-inline'",
   },
 };
 
