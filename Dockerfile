@@ -1,6 +1,6 @@
 FROM node:lts as node_with_pnpm
 RUN corepack enable pnpm
-WORKDIR /nimblenext
+WORKDIR /app
 
 FROM node_with_pnpm as composer
 COPY pnpm-lock.yaml ./
@@ -13,11 +13,11 @@ RUN pnpm build
 FROM node_with_pnpm as runner
 ENV NODE_ENV production
 
-COPY --from=composer /nimblenext/next.config.js ./
-COPY --from=composer /nimblenext/public ./public
-COPY --from=composer /nimblenext/.next ./.next
-COPY --from=composer /nimblenext/node_modules ./node_modules
-COPY --from=composer /nimblenext/package.json ./package.json
+COPY --from=composer /app/node_modules ./node_modules
+COPY --from=composer /app/.next ./.next
+COPY --from=composer /app/public ./public
+COPY --from=composer /app/package.json ./package.json
+COPY --from=composer /app/next.config.js ./
 
 EXPOSE 3000
 CMD ["pnpm", "start"]
