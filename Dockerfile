@@ -1,5 +1,5 @@
 FROM node:lts as node_with_pnpm
-RUN npm install -g pnpm
+RUN corepack enable pnpm
 WORKDIR /nimblenext
 
 FROM node_with_pnpm as composer
