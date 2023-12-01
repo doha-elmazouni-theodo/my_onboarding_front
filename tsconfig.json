@@ -11,7 +11,8 @@
         "./*"
       ]
     },
-    "checkJs": true
+    "checkJs": true,
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules"
@@ -24,6 +25,7 @@
     "**/*.json",
     "**/*.jsx",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ]
 }

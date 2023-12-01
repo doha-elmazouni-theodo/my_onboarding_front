@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "pnpm check-filesize && next dev",
     "build": "next build --no-lint",
-    "build:export": "next build --no-lint && next export",
+    "build:export": "NEXT_EXPORT_BUILD=true next build --no-lint",
     "start": "next start",
     "lint": "next lint --ignore-path .gitignore",
     "lint:all": "pnpm lint --dir .",

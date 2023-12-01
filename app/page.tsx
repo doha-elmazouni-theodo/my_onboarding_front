@@ -1,21 +1,16 @@
 import Banner3S from "~components/landing/banner3s";
+import ChangeLanguageButton from "~components/landing/changeLangugaeButton";
 import { SITE_CONFIG } from "~config/site";
-import i18n, { changeLanguage } from "~i18n/i18n";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
-import { Language } from "~i18n/types";
-import { useTranslation } from "~i18n/useTranslation";
-import type { NextPage } from "~types/next";
 
-import { NextSeo } from "next-seo";
+export const metadata = {
+  title: "Home",
+};
 
-const Home: NextPage = () => {
-  const translate = useTranslation();
-
+const HomePage: React.FC = () => {
   return (
     <div>
-      <NextSeo title="Home" />
-
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-col w-full mb-20 text-center">
@@ -55,17 +50,12 @@ const Home: NextPage = () => {
 
           <div className="flex flex-col w-full mb-20 text-center">
             <h2 className="mb-1 text-s font-medium tracking-widest text-red-500 ">
-              <button
-                className="btn btn-blue"
-                onClick={() => {
-                  changeLanguage(i18n.language === Language.FR ? Language.EN : Language.FR);
-                }}
-              >
-                {translate(txKeys.common.changeLanguage)}
-              </button>
+              <ChangeLanguageButton />
             </h2>
             <div className="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
-              <h2>{translate(txKeys.common.labelExample)}</h2>
+              <h2>
+                <TranslateMessage txKey={txKeys.common.labelExample} />
+              </h2>
               <h2>
                 <TranslateMessage txKey={txKeys.common.labelExampleFormatted} components={{ underline: <u /> }} />
               </h2>
@@ -77,4 +67,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

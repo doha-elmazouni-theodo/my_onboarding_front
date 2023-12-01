@@ -1,3 +1,4 @@
+"use client";
 import { usePostMutation, usePostsQuery } from "~hooks/posts";
 
 export const PostsContainer: React.FC = () => {

@@ -1,5 +1,4 @@
-import * as React from "react";
-
+"use client";
 /* eslint-disable-next-line no-restricted-imports */
 import { Trans } from "react-i18next";
 
