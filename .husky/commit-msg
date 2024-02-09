@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/common.sh"
+
+# Check if your commit message is valid using conventional rules
+./pnpm commitlint --edit
