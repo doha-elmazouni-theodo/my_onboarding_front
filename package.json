@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint --ignore-path .gitignore",
     "lint:all": "pnpm lint --dir .",
-    "lint:fix": "pnpm lint:all --fix --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "pnpm lint:all --fix",
     "test": "jest",
     "test:snap": "jest --maxWorkers=50% --silent --watchAll=false --testMatch='!**/*' --testMatch='**/*.snap.tsx'",
     "test:coverage": "jest --coverage --maxWorkers=50% --silent --watchAll=false --reporters=default --coverageReporters=cobertura --coverageReporters=text-summary --coverageReporters=json-summary --coverageReporters=lcov --testMatch='**/*.{spec,test}.{js,jsx,ts,tsx}'",
