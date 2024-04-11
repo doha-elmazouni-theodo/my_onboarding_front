@@ -18,8 +18,8 @@ Helper scripts for both Windows and Linux are provided in the repository's root 
 - Windows: `pnpm [arguments...]`. Ex:
 
 ```
-D:\internal-boilerplate-nextjs> pnpm run lint
-> corepack pnpm lint
+D:\internal-boilerplate-nextjs> pnpm run lint:all
+> corepack pnpm lint:all
 
 > nw-nextjs-boilerplate@ lint D:\internal-boilerplate-nextjs
 > next lint --ignore-path .gitignore --dir .
@@ -31,8 +31,8 @@ D:\internal-boilerplate-nextjs> pnpm run lint
 - Linux: `./pnpm [arguments...]`. Ex:
 
 ```
-$ ./pnpm run lint
-> corepack pnpm run lint
+$ ./pnpm run lint:all
+> corepack pnpm run lint:all
 
 > nw-nextjs-boilerplate@ lint /src
 > next lint --ignore-path .gitignore --dir .

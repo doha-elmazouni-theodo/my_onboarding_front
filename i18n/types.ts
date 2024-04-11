@@ -7,7 +7,6 @@ export enum Language {
 
 export type TranslationJsonType = typeof FrJson;
 
-//// i18n props types
 export interface TranslationOption {
   nameSpace?: string;
   useSuspense?: boolean;

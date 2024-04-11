@@ -147,7 +147,7 @@ exports[`Testing page example should render home 1`] = `
             <button
               class="btn btn-blue"
             >
-              Changer la language
+              Changer la langue
             </button>
           </h2>
           <div

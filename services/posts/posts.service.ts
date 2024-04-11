@@ -17,8 +17,8 @@ const savePost = async (): Promise<Post> => {
     params,
   });
 };
-
-export default {
+const postService = {
   getPosts,
   savePost,
 };
+export default postService;

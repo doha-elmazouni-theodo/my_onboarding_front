@@ -1,7 +1,7 @@
 import HomePage from "~app/page";
 import { SITE_CONFIG } from "~config/site";
 
-import { render } from "@testing-library/react";
+import { render } from "./test-utils";
 
 describe("Testing page example", () => {
   it("should find the title", () => {

@@ -1,6 +1,6 @@
 import HomePage from "~app/page";
 
-import { render } from "@testing-library/react";
+import { render } from "./test-utils";
 
 describe("Testing page example", () => {
   it("should render home", () => {

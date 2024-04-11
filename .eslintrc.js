@@ -29,6 +29,11 @@ module.exports = {
                 name: "react-i18next",
                 message: "Importing the react-i18next library is not allowed",
               },
+              {
+                name: "@testing-library/react",
+                importNames: ["render"],
+                message: "Please use render from test-utils",
+              },
             ],
           },
         ],

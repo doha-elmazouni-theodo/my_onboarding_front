@@ -1,5 +1,5 @@
 import Banner3S from "~components/landing/banner3s";
-import ChangeLanguageButton from "~components/landing/changeLangugaeButton";
+import ChangeLanguageButton from "~components/landing/ChangeLanguageButton";
 import { SITE_CONFIG } from "~config/site";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";

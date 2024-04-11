@@ -1,22 +1,15 @@
 {
-  "extends": [
-    "@tsconfig/next/tsconfig.json",
-    "@tsconfig/strictest/tsconfig.json"
-  ],
+  "extends": ["@tsconfig/next/tsconfig.json", "@tsconfig/strictest/tsconfig.json"],
   "compilerOptions": {
     "baseUrl": ".",
     "downlevelIteration": true,
     "paths": {
-      "~*": [
-        "./*"
-      ]
+      "~*": ["./*"]
     },
     "checkJs": true,
     "strictNullChecks": true
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
     "env.d.ts",

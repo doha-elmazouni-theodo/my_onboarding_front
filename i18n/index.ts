@@ -1,5 +1,7 @@
 import enMessages from "./locales/en.json";
 import frMessages from "./locales/fr.json";
+import { createTestTranslationProvider, createTranslationProvider } from "./TranslationProvider";
+import type { TFunction } from "./types";
 import { Language } from "./types";
 
 /* eslint-disable-next-line no-restricted-imports */
@@ -18,10 +20,10 @@ const resources: Resource = {
   en: { [defaultNS]: enMessages },
 };
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDevelopment = process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "test";
 
-const i18nInitializer = (): i18nApi => {
-  i18next
+export const i18nInitializer = async (): Promise<i18nApi> => {
+  return i18next
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
@@ -40,22 +42,11 @@ const i18nInitializer = (): i18nApi => {
         escapeValue: false,
       },
     })
-    .then(undefined)
-    .catch((error) => {
-      console.error("error", error);
-    });
-
-  return i18next;
-};
-const i18n = i18nInitializer();
-
-export const changeLanguage = (lng: Language): void => {
-  i18n
-    .changeLanguage(lng)
-    .then(undefined)
-    .catch((error) => {
-      console.error("error", error);
+    .then(() => {
+      return i18next;
     });
 };
 
-export default i18n;
+export const translate: TFunction = (key, iOptions) => i18next.t(key, iOptions ?? {});
+export const TranslationProvider = createTranslationProvider(i18next);
+export const TestTranslationProvider = createTestTranslationProvider(i18next);

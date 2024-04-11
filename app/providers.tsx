@@ -2,7 +2,7 @@
 
 import React, { StrictMode } from "react";
 
-import { TranslationProvider } from "~i18n/TranslationProvider";
+import { TranslationProvider } from "~i18n";
 import { StoreProvider } from "~store/provider";
 import notistackRef from "~utils/notistackRef";
 import { queryClient } from "~utils/queryClient";

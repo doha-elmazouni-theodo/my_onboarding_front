@@ -50,10 +50,11 @@ async function patch<TData, TBody>(path: string, body?: TBody, config?: ClientRe
   return data;
 }
 
-export default {
+const apiClient = {
   get,
   post,
   delete: deleteHttpMethod,
   put,
   patch,
 };
+export default apiClient;
