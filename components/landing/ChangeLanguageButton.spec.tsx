@@ -6,7 +6,7 @@ import ChangeLanguageButton from "./ChangeLanguageButton";
 
 import { fireEvent, waitFor } from "@testing-library/react";
 
-describe("<ChangeLanguageButton />", () => {
+describe("ChangeLanguageButton", () => {
   it("initial render should have button text in french", () => {
     const { getByText } = render(<ChangeLanguageButton />);
     expect(getByText(/changer la langue/iu)).toBeInTheDocument();

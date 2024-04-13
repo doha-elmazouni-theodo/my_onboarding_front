@@ -49,6 +49,10 @@ const isStaticBuild = Boolean(process.env.NEXT_EXPORT_BUILD);
 const basicConfig = {
   reactStrictMode: true,
   trailingSlash: true,
+  // Only works after next@13.4.20-canary.0 https://github.com/vercel/next.js/issues/41994#issuecomment-1685287742
+  compiler: {
+    emotion: true,
+  },
 };
 
 /** @type {import('next').NextConfig} */

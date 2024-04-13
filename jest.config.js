@@ -1,19 +1,20 @@
-// @ts-check
+const nextJest = require("next/jest");
 
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
-  preset: "ts-jest",
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: "./",
+});
+// Add any custom config to be passed to Jest
+/** @type {import('jest').Config} */
+const config = {
+  watchPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/", "<rootDir>/coverage/"],
+  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/", "<rootDir>/coverage/"],
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/__test__/setup-tests.ts"],
-  transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
-  },
   testMatch: ["**/*.{spec,test,snap}.{js,jsx,ts,tsx}"],
-  moduleNameMapper: {
-    "\\.(css|scss|less)$": "<rootDir>/__test__/styleMock.d.ts",
-    "^~(.*)$": "<rootDir>/$1",
-  },
   collectCoverageFrom: ["*/**/*.{js,jsx,ts,tsx}", "!coverage/**", "!**/node_modules/**", "!**/.next/**"],
   snapshotSerializers: ["@emotion/jest/serializer"],
 };
+
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+module.exports = createJestConfig(config);
