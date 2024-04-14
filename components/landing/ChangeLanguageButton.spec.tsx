@@ -1,10 +1,8 @@
 import React from "react";
 
-import { render } from "~__test__/test-utils";
+import { fireEvent, render, waitFor } from "~__test__/test-utils";
 
 import ChangeLanguageButton from "./ChangeLanguageButton";
-
-import { fireEvent, waitFor } from "@testing-library/react";
 
 describe("ChangeLanguageButton", () => {
   it("initial render should have button text in french", () => {

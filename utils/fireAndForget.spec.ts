@@ -1,6 +1,6 @@
-import { fireAndForget } from "./fireAndForget";
+import { waitFor } from "~__test__/test-utils";
 
-import { waitFor } from "@testing-library/react";
+import { fireAndForget } from "./fireAndForget";
 
 describe("fireAndForget", () => {
   it("should execute the passed function without throwing an error when the promise resolves", async () => {

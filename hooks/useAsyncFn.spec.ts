@@ -5,11 +5,11 @@
 // does not automatically invoke the function
 // and it can take arguments.
 
+import type { RenderHookResult } from "~__test__/test-utils";
+import { act, renderHook } from "~__test__/test-utils";
+
 import type { AsyncState } from "./types";
 import useAsyncFn from "./useAsyncFn";
-
-import type { RenderHookResult } from "@testing-library/react";
-import { act, renderHook } from "@testing-library/react";
 
 type AdderFn = (a?: number, b?: number) => Promise<number>;
 

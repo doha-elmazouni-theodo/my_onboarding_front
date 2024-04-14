@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 
+import type { RenderHookResult } from "~__test__/test-utils";
+import { act, renderHook, waitFor } from "~__test__/test-utils";
+
 import type { AnyFunctionArguments, AsyncState } from "./types";
 import useAsync from "./useAsync";
-
-import type { RenderHookResult } from "@testing-library/react";
-import { act, renderHook } from "@testing-library/react";
 
 describe("useAsync", () => {
   it("should be defined", () => {
@@ -80,7 +80,7 @@ describe("useAsync", () => {
   });
 
   describe("an error", () => {
-    const { delayedFn, getPromise, triggerAction, countCalls, resetCallCount } = createDelayedFunction<[], string>(
+    const { delayedFn, triggerAction, countCalls, resetCallCount } = createDelayedFunction<[], string>(
       (_, reject) => () => {
         if (reject !== undefined) reject(new Error("yay"));
       },
@@ -101,16 +101,22 @@ describe("useAsync", () => {
       expect(hook.result.current.loading).toBeTruthy();
     });
 
+    /**
+     * Before unskipping this test you can try reading:
+     * https://github.com/jestjs/jest/issues/5620
+     * https://johann.pardanaud.com/blog/how-to-assert-unhandled-rejection-and-uncaught-exception-with-jest/
+     */
     it.skip("rejects", async () => {
-      await act(async () => {
+      act(() => {
         triggerAction();
-        await getPromise();
       });
 
-      expect(countCalls()).toEqual(1);
-      expect(hook.result.current.loading).toBeFalsy();
-      expect(hook.result.current.error).toEqual(new Error("yay"));
-      expect(hook.result.current.value).toEqual(undefined);
+      await waitFor(() => {
+        expect(countCalls()).toEqual(1);
+        expect(hook.result.current.loading).toBeFalsy();
+        expect(hook.result.current.error).toEqual(new Error("yay"));
+        expect(hook.result.current.value).toEqual(undefined);
+      });
     });
   });
 
