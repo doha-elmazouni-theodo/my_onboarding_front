@@ -10,7 +10,7 @@ const config = {
   watchPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/", "<rootDir>/coverage/"],
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/", "<rootDir>/coverage/"],
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/__test__/setup-tests.ts"],
+  setupFilesAfterEnv: ["<rootDir>/src/__test__/setup-tests.ts"],
   testMatch: ["**/*.{spec,test,snap}.{js,jsx,ts,tsx}"],
   collectCoverageFrom: ["*/**/*.{js,jsx,ts,tsx}", "!coverage/**", "!**/node_modules/**", "!**/.next/**"],
   snapshotSerializers: ["@emotion/jest/serializer"],

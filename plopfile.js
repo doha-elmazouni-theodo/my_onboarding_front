@@ -10,17 +10,17 @@ const configGeneratorComponent = {
   actions: [
     {
       type: "add",
-      path: "components/{{camelCase name}}/{{pascalCase name}}.tsx",
-      templateFile: "__plop__/ComponentReact.hbs",
+      path: "src/components/{{camelCase name}}/{{pascalCase name}}.tsx",
+      templateFile: "src/__plop__//ComponentReact.hbs",
     },
     {
       type: "add",
-      path: "components/{{camelCase name}}/index.ts",
-      templateFile: "__plop__/index.hbs",
+      path: "src/components/{{camelCase name}}/index.ts",
+      templateFile: "src/__plop__//index.hbs",
     },
     {
       type: "add",
-      path: "components/{{camelCase name}}/{{pascalCase name}}.style.ts",
+      path: "src/components/{{camelCase name}}/{{pascalCase name}}.style.ts",
     },
   ],
 };
@@ -37,8 +37,8 @@ const configGeneratorPage = {
   actions: [
     {
       type: "add",
-      path: "pages/{{camelCase name}}.tsx",
-      templateFile: "__plop__/Page.hbs",
+      path: "src/pages/{{camelCase name}}.tsx",
+      templateFile: "src/__plop__//Page.hbs",
     },
   ],
 };

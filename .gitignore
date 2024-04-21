@@ -47,3 +47,5 @@ package-lock.json
 
 # ignore hook init script
 .husky/.hook_init
+
+.swc
