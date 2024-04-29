@@ -1,4 +1,4 @@
-FROM node:lts as node_with_pnpm
+FROM node:20 as node_with_pnpm
 RUN corepack enable pnpm
 WORKDIR /app
 

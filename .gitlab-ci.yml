@@ -1,5 +1,5 @@
 default:
-  image: node:14-alpine3.13
+  image: node:20-alpine3.19
   interruptible: true
 
 variables:

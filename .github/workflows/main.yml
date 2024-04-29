@@ -1,7 +1,7 @@
 name: main next boilerplate
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
 jobs:
   build:
@@ -20,8 +20,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'pnpm'
+          node-version: "20"
+          cache: "pnpm"
 
       - name: Get Node version
         id: node-version
@@ -80,7 +80,7 @@ jobs:
       - name: Check assets sizes
         run: pnpm check-filesize
 
-#######################################################
+  #######################################################
 
   check-docker-build:
     name: Docker build check
