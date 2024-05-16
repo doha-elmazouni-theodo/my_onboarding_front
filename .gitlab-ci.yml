@@ -18,7 +18,7 @@ workflow:
     - if: "$CI_COMMIT_BRANCH =~ /^(main)$/"
 
 before_script:
-  - npm i -g pnpm
+  - corepack enable pnpm
   - pnpm config set store-dir .pnpm-store
 
 # Ideally this job should not be executed if the nodemodule cache exists
@@ -52,11 +52,11 @@ Tests:
     - if: "$CI_MERGE_REQUEST_IID"
   stage: test
   before_script:
-    - npm i -g pnpm
+    - corepack enable pnpm
     - pnpm config set store-dir .pnpm-store
     - test -d node_modules/ || pnpm install --frozen-lockfile
   script:
-    - pnpm lint --cache --cache-strategy content --cache-location .cicache/eslint/.cache.json
+    - pnpm lint
     - pnpm test:snap --cacheDirectory .cicache/jest-snap
     - pnpm test:coverage --cacheDirectory .cicache/jest
     - node reportCoverage.js coverage/coverage-summary.json
@@ -75,6 +75,12 @@ Tests:
           - pnpm-lock.yaml
       paths:
         - .cicache
+    - key:
+        prefix: nextcache-$CI_JOB_IMAGE
+        files:
+          - pnpm-lock.yaml
+      paths:
+        - .next/cache
   artifacts:
     when: always
     reports:
@@ -91,7 +97,7 @@ Build:
     NEXT_PUBLIC_BUILD_SHA: $CI_COMMIT_SHA
   stage: build
   before_script:
-    - npm i -g pnpm
+    - corepack enable pnpm
     - pnpm config set store-dir .pnpm-store
     - test -d node_modules/ || pnpm install --frozen-lockfile
   script:
@@ -108,6 +114,9 @@ Build:
       paths:
         - node_modules
       policy: pull
-    - key: buildcache-$CI_COMMIT_BRANCH-$CI_JOB_IMAGE
+    - key:
+        prefix: nextcache-$CI_JOB_IMAGE
+        files:
+          - pnpm-lock.yaml
       paths:
-        - ./.next/cache
+        - .next/cache
