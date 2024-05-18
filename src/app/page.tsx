@@ -4,6 +4,8 @@ import { SITE_CONFIG } from "~config/site";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 
+import Image from "next/image";
+
 export const metadata = {
   title: "Home",
 };
@@ -13,7 +15,8 @@ const HomePage: React.FC = () => {
     <div>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col w-full mb-20 text-center">
+          <div className="flex flex-col w-full mb-20 text-center justify-center items-center">
+            <Image src="/logo.svg" alt="Logo" width={100} height={100} className="mb-4" />
             <h2 className="mb-1 text-xs font-medium tracking-widest text-red-500 title-font">
               {SITE_CONFIG.title.toUpperCase()}
             </h2>

@@ -10,8 +10,19 @@ exports[`Testing page example should render home 1`] = `
         class="container px-5 py-24 mx-auto"
       >
         <div
-          class="flex flex-col w-full mb-20 text-center"
+          class="flex flex-col w-full mb-20 text-center justify-center items-center"
         >
+          <img
+            alt="Logo"
+            class="mb-4"
+            data-nimg="1"
+            decoding="async"
+            height="100"
+            loading="lazy"
+            src="/logo.svg"
+            style="color: transparent;"
+            width="100"
+          />
           <h2
             class="mb-1 text-xs font-medium tracking-widest text-red-500 title-font"
           >
