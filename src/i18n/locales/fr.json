@@ -3,6 +3,7 @@
     "changeLanguage": "Changer la langue",
     "labelExample": "example de texte",
     "labelExampleFormatted": "exemple de texte <underline>formaté</underline>",
-    "generalError": "Une erreur s'est produite"
+    "generalError": "Une erreur s'est produite",
+    "styledButton": "Exemple de bouton @emotion/styled"
   }
 }

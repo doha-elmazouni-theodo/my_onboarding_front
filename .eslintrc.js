@@ -24,6 +24,10 @@ module.exports = {
             name: "@testing-library/react",
             message: "Please import from test-utils",
           },
+          {
+            name: "@testing-library/user-event",
+            message: "Please import from test-utils",
+          },
         ],
       },
     ],

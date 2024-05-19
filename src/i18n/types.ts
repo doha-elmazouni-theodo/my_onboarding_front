@@ -13,7 +13,7 @@ export interface TranslationOption {
   keyPrefix?: string;
 }
 
-export interface InterpolationOptions {
+interface InterpolationOptions {
   formatSeparator?: string;
   escape?: (str: string) => string;
   alwaysFormat?: boolean;

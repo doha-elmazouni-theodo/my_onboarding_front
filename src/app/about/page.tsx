@@ -1,6 +1,8 @@
 import { SITE_CONFIG } from "~config/site";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "About",
 };
 

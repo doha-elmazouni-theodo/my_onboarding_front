@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/common.sh"
 
-./pnpm lint-staged
-
-./pnpm check-filesize
+./pnpm pre-commit-check

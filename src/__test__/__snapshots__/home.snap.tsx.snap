@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing page example should render home 1`] = `
+.emotion-0 {
+  padding: 32px;
+  background-color: #c43bad;
+  font-size: 24px;
+  border-radius: 4px;
+  color: black;
+  font-weight: bold;
+}
+
+.emotion-0:hover {
+  color: white;
+}
+
 <div>
   <div>
     <section
@@ -173,6 +186,15 @@ exports[`Testing page example should render home 1`] = `
                 formaté
               </u>
             </h2>
+            <div
+              class="flex justify-center mt-4"
+            >
+              <button
+                class="emotion-0 emotion-1"
+              >
+                Exemple de bouton @emotion/styled
+              </button>
+            </div>
           </div>
         </div>
       </div>

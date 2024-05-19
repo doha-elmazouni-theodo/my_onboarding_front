@@ -1,6 +1,6 @@
 import React from "react";
 
-import { fireEvent, render, waitFor } from "~__test__/test-utils";
+import { render, userEvent, waitFor } from "~__test__/test-utils";
 
 import ChangeLanguageButton from "./ChangeLanguageButton";
 
@@ -11,8 +11,9 @@ describe("ChangeLanguageButton", () => {
   });
 
   it("pressing the button changes the button text to english when the promise resolves", async () => {
+    const user = userEvent.setup();
     const { getByText } = render(<ChangeLanguageButton />);
-    fireEvent.click(getByText(/changer la langue/iu));
+    await user.click(getByText(/changer la langue/iu));
 
     await waitFor(() => {
       expect(getByText(/change language/iu)).toBeInTheDocument();

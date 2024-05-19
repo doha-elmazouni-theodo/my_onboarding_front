@@ -1,3 +1,4 @@
+"use client";
 import type { TFunction, TranslationOption } from "~i18n/types";
 
 /* eslint-disable-next-line no-restricted-imports */

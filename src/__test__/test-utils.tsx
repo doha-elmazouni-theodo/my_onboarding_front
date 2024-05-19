@@ -43,4 +43,6 @@ const customRenderHook = <
 
 // eslint-disable-next-line no-restricted-imports
 export * from "@testing-library/react";
+// eslint-disable-next-line no-restricted-imports
+export * from "@testing-library/user-event";
 export { customRender as render, customRenderHook as renderHook };

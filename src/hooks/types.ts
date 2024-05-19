@@ -1,6 +1,4 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type PromiseType<P extends Promise<any>> = P extends Promise<infer T> ? T : never;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyFunctionArguments = any[];
 export type FunctionReturningPromise<Input extends AnyFunctionArguments, Output> = (...args: Input) => Promise<Output>;
 
