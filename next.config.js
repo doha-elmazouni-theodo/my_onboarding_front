@@ -45,6 +45,9 @@ const httpEquivHeaders = [
 // https://nextjs.org/docs/app/building-your-application/deploying/static-exports#unsupported-features
 const isStaticBuild = Boolean(process.env.NEXT_EXPORT_BUILD);
 
+// https://nextjs.org/docs/pages/api-reference/next-config-js/output
+const isStandaloneBuild = Boolean(process.env.NEXT_STANDALONE_BUILD);
+
 /** @type {import('next').NextConfig} */
 const basicConfig = {
   reactStrictMode: true,
@@ -64,6 +67,7 @@ const staticExportConfig = {
 /** @type {import('next').NextConfig} */
 const dynamicExportConfig = {
   ...basicConfig,
+  ...(isStandaloneBuild ? { output: "standalone" } : {}),
   poweredByHeader: false,
   async headers() {
     return [

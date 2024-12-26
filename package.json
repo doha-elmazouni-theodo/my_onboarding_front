@@ -10,6 +10,7 @@
     "dev": "pnpm check-filesize && next dev",
     "build": "next build --no-lint",
     "build:export": "NEXT_EXPORT_BUILD=true next build --no-lint",
+    "build:standalone": "NEXT_STANDALONE_BUILD=true next build --no-lint",
     "start": "next start",
     "lint:target": "next lint --ignore-path .gitignore --max-warnings 0",
     "lint": "pnpm lint:target --dir .",
