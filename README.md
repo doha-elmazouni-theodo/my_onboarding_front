@@ -3,42 +3,32 @@
 ## IDE extensions
 
 ### VSCode
+
 it s highly required to install the recommended extensions by runing in vscode prompt command
 `> Show recommended extensions`
 
 ### Jetbrians IDE
+
 install manually this [Conventional commit plugin](https://plugins.jetbrains.com/plugin/13389-conventional-commit).
 
 ## Package manager
 
 We use `pnpm` as package manager. The version is enforced for all the developers by setting it explicitly with `engines.npm` in `package.json`.
 
-Helper scripts for both Windows and Linux are provided in the repository's root to automatically and seemlessly use the required version. To use it:
+## Corepack
 
-- Windows: `pnpm [arguments...]`. Ex:
+We use `corepack` to ensure all developers use the same version of package managers. Corepack is a tool that comes with Node.js and manages package manager versions. It reads the version requirements from `package.json` and automatically installs and uses the correct version of the package manager.
 
-```
-D:\internal-boilerplate-nextjs> pnpm run lint:all
-> corepack pnpm lint:all
+To enable corepack, run:
 
-> nw-nextjs-boilerplate@ lint D:\internal-boilerplate-nextjs
-> next lint --ignore-path .gitignore --dir .
-
-- info Loaded env from D:\internal-boilerplate-nextjs\.env
-...
+```sh
+corepack enable pnpm
 ```
 
-- Linux: `./pnpm [arguments...]`. Ex:
+To update the version used by the team
 
+```sh
+# corepack use pnpm@<version>
+# eg:
+corepack use pnpm@latest
 ```
-$ ./pnpm run lint:all
-> corepack pnpm run lint:all
-
-> nw-nextjs-boilerplate@ lint /src
-> next lint --ignore-path .gitignore --dir .
-
-- info Loaded env from /src/.env
-...
-```
-
-The scripts use the Node.js built-in "package manager" manager `corepack`.

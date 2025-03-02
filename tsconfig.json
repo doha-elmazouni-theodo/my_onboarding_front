@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": ["@tsconfig/next/tsconfig.json", "@tsconfig/strictest/tsconfig.json"],
   "compilerOptions": {
     "baseUrl": ".",
@@ -7,7 +8,9 @@
       "~*": ["./src/*"]
     },
     "checkJs": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "target": "es6",
+    "noEmit": true
   },
   "exclude": ["node_modules"],
   "include": [

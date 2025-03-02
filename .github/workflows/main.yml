@@ -60,6 +60,7 @@ jobs:
       - name: Test
         run: |
           pnpm knip
+          pnpm typecheck
           pnpm lint:all
           pnpm test:snap --cacheDirectory .cicache/jest-snap
           pnpm test:coverage --cacheDirectory .cicache/jest

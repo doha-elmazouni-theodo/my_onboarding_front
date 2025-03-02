@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const glob = require("glob-all");
+const glob = require("glob");
 const config = require(path.join(process.cwd(), "check-filesize.config"));
 
 const { directoriesRelativePaths, excludeGlobPatterns, includeGlobPatterns, maxFileSizeInBytes } = config;

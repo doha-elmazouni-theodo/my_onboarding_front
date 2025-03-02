@@ -1,4 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/common.sh"
-
-./pnpm pre-commit-check
+pnpm pre-commit-check
