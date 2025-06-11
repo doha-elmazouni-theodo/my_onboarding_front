@@ -22,7 +22,7 @@ We use `corepack` to ensure all developers use the same version of package manag
 To enable corepack, run:
 
 ```sh
-corepack enable pnpm
+corepack enable && corepack prepare --activate
 ```
 
 To update the version used by the team
