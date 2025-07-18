@@ -9,7 +9,7 @@ import type { i18n as i18nApi } from "i18next";
 import { I18nextProvider } from "react-i18next";
 
 export const createTranslationProvider = (i18n: i18nApi) =>
-  function TransactionProvider({ children }: React.PropsWithChildren): React.ReactElement {
+  function TransactionProvider({ children }: React.PropsWithChildren): React.ReactElement<React.PropsWithChildren> {
     const { loading, error } = useAsync(i18nInitializer, []);
     return (
       <>
@@ -21,7 +21,7 @@ export const createTranslationProvider = (i18n: i18nApi) =>
   };
 
 export const createTestTranslationProvider = (i18n: i18nApi) =>
-  function TransactionProvider({ children }: React.PropsWithChildren): React.ReactElement {
+  function TransactionProvider({ children }: React.PropsWithChildren): React.ReactElement<React.PropsWithChildren> {
     i18nInitializer().catch((error) => {
       // Disabled because the rule is not relevant in the test provider
       // eslint-disable-next-line no-console
