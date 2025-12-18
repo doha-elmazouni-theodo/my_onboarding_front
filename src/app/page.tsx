@@ -4,7 +4,7 @@ import { SITE_CONFIG } from "~config/site";
 import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 
-import { LandingEmotionButton } from "./../components/landing/LandingEmotionButton";
+import { LandingButton } from "./../components/landing/LandingButton";
 
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
                 <TranslateMessage txKey={txKeys.common.labelExampleFormatted} components={{ underline: <u /> }} />
               </h2>
               <div className="flex justify-center mt-4">
-                <LandingEmotionButton />
+                <LandingButton />
               </div>
             </div>
           </div>

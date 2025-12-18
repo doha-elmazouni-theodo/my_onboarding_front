@@ -13,7 +13,6 @@ const jestBaseConfig = {
   setupFilesAfterEnv: ["<rootDir>/src/__test__/setup-tests.ts"],
   testMatch: ["**/*.{spec,test,snap}.{js,jsx,ts,tsx}"],
   collectCoverageFrom: ["*/**/*.{js,jsx,ts,tsx}", "!coverage/**", "!**/node_modules/**", "!**/.next/**"],
-  snapshotSerializers: ["@emotion/jest/serializer"],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
