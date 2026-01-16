@@ -13,7 +13,7 @@ export const PostsContainer: React.FC = () => {
 
   return (
     <>
-      <button className="text-white bg-slate-600 p-2 m-2" onClick={onSavePost}>
+      <button className="m-2 bg-slate-600 p-2 text-white" onClick={onSavePost}>
         save post example call
       </button>
       <div>

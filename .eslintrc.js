@@ -3,11 +3,25 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: ["next/core-web-vitals", "@nimbleways/eslint-config"],
+  plugins: ["better-tailwindcss"],
   parserOptions: {
     ecmaVersion: "latest",
   },
 
+  settings: {
+    "better-tailwindcss": {
+      entryPoint: "src/styles/globals.css",
+    },
+  },
+
   rules: {
+    "better-tailwindcss/no-duplicate-classes": "error",
+    "better-tailwindcss/enforce-shorthand-classes": "error",
+    "better-tailwindcss/no-conflicting-classes": "error",
+    "better-tailwindcss/no-restricted-classes": "error",
+    "better-tailwindcss/no-deprecated-classes": "error",
+    "better-tailwindcss/enforce-consistent-variable-syntax": "error",
+    "better-tailwindcss/enforce-consistent-class-order": "error",
     "no-restricted-imports": [
       "error",
       {

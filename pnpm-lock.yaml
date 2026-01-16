@@ -28,6 +28,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      eslint-plugin-better-tailwindcss:
+        specifier: v4.0.0-beta.6
+        version: 4.0.0-beta.6(eslint@8.57.0)(tailwindcss@4.1.18)(typescript@5.8.2)
       i18next:
         specifier: ^22.4.14
         version: 22.4.14
@@ -620,6 +623,10 @@ packages:
     resolution: {integrity: sha512-Z5ba73P98O1KUYCCJTUeVpja9RcGoMdncZ6T49FCUl2lN38JtCJ+3WgIDBv0AuY4WChU5PmtJmOCTlN6FZTFKQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
+  '@eslint/css-tree@3.6.8':
+    resolution: {integrity: sha512-s0f40zY7dlMp8i0Jf0u6l/aSswS0WRAgkhgETgiCJRcxIWb4S/Sp9uScKHWbkM3BnoFLbJbmOYk5AZUDFVxaLA==}
+    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
+
   '@eslint/eslintrc@2.1.4':
     resolution: {integrity: sha512-269Z39MS6wVJtsoUl10L60WdkhJVdPG24Q4eZTH3nnF6lpvSShEK3wQjDX9JRWAUPvPh7COouPpU9IrqaZFvtQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -1125,7 +1132,7 @@ packages:
   '@mui/base@5.0.0-alpha.107':
     resolution: {integrity: sha512-HX/BD8CSe+Y/dpbZ5aKJScJhKQ/Hw6du2yd68Upv2cO67bwixyZ64h3aNcdDu7RQzI7nrZQm0JykffP1Orgq0g==}
     engines: {node: '>=12.0.0'}
-    deprecated: This package has been replaced by @base-ui-components/react
+    deprecated: This package has been replaced by @base-ui/react
     peerDependencies:
       '@types/react': 19.1.8
       react: ^17.0.0 || ^18.0.0
@@ -1343,6 +1350,10 @@ packages:
 
   '@octokit/types@13.8.0':
     resolution: {integrity: sha512-x7DjTIbEpEWXK99DMd01QfWy0hd5h4EN+Q7shkdKds3otGQP+oWE/y0A76i1OvH9fygo4ddvNf7ZvF0t78P98A==}
+
+  '@pkgr/core@0.2.9':
+    resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
+    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
   '@pkgr/utils@2.3.1':
     resolution: {integrity: sha512-wfzX8kc1PMyUILA+1Z/EqoE4UCXGy0iRGMhPwdfae1+f0OXlLqCk+By+aMzgJBzR9AzS4CDizioG6Ss1gvAFJw==}
@@ -1799,6 +1810,11 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+
+  '@valibot/to-json-schema@1.5.0':
+    resolution: {integrity: sha512-GE7DmSr1C2UCWPiV0upRH6mv0cCPsqYGs819fb6srCS1tWhyXrkGGe+zxUiwzn/L1BOfADH4sNjY/YHCuP8phQ==}
+    peerDependencies:
+      valibot: ^1.2.0
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -2836,6 +2852,13 @@ packages:
         optional: true
       eslint-import-resolver-webpack:
         optional: true
+
+  eslint-plugin-better-tailwindcss@4.0.0-beta.6:
+    resolution: {integrity: sha512-DBtvXwoDLM7xve7/HsT8Y6B1h5DsyUPoUo0eEHRxTCnsXiC7b/CM4JIOHOV7T1lEcQ+KxW6VwYh82w6t0m96sg==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=23.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+      tailwindcss: ^3.3.0 || ^4.1.15
 
   eslint-plugin-import@2.32.0:
     resolution: {integrity: sha512-whOE1HFo/qJDyX4SnXzP4N6zOWn79WhnCUY/iDR0mPfQZO8wcYE4JClzI2oZrhBnnMUCBCHZhO6VQyoBU95mZA==}
@@ -4377,6 +4400,9 @@ packages:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
+  mdn-data@2.23.0:
+    resolution: {integrity: sha512-786vq1+4079JSeu2XdcDjrhi/Ry7BWtjDl9WtGPWLiIHb2T66GvIVflZTBoSNZ5JqTtJGYEVMuFA/lbQlMOyDQ==}
+
   meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
     engines: {node: '>=16.10'}
@@ -5583,9 +5609,17 @@ packages:
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
+  synckit@0.11.12:
+    resolution: {integrity: sha512-Bh7QjT8/SuKUIfObSXNHNSK6WHo6J1tHCqJsuaFDP7gP0fkzSfTxI8y85JrppZ0h8l0maIgc2tfuZQ6/t3GtnQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+
   synckit@0.8.5:
     resolution: {integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==}
     engines: {node: ^14.18.0 || >=16.0.0}
+
+  tailwind-csstree@0.1.4:
+    resolution: {integrity: sha512-FzD187HuFIZEyeR7Xy6sJbJll2d4SybS90satC8SKIuaNRC05CxMvdzN7BUsfDQffcnabckRM5OIcfArjsZ0mg==}
+    engines: {node: '>=18.18'}
 
   tailwind-merge@3.4.0:
     resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
@@ -5661,8 +5695,16 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
+  tsconfig-paths-webpack-plugin@4.2.0:
+    resolution: {integrity: sha512-zbem3rfRS8BgeNK50Zz5SIQgXzLafiHjOwUAvk/38/o1jHn/V5QAgVUcz884or7WYcPaH3N2CIfUc2u0ul7UcA==}
+    engines: {node: '>=10.13.0'}
+
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
+
+  tsconfig-paths@4.2.0:
+    resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
+    engines: {node: '>=6'}
 
   tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
@@ -5834,6 +5876,14 @@ packages:
   v8flags@4.0.1:
     resolution: {integrity: sha512-fcRLaS4H/hrZk9hYwbdRM35D0U8IYMfEClhXxCivOojl+yTRAZH3Zy2sSy6qVCiGbV9YAtPssP6jaChqC9vPCg==}
     engines: {node: '>= 10.13.0'}
+
+  valibot@1.2.0:
+    resolution: {integrity: sha512-mm1rxUsmOxzrwnX5arGS+U4T25RdvpPjPN4yR0u9pUBov9+zGVtO84tif1eY4r6zWxVxu3KzIyknJy3rxfRZZg==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -6617,6 +6667,11 @@ snapshots:
 
   '@eslint-community/regexpp@4.5.1': {}
 
+  '@eslint/css-tree@3.6.8':
+    dependencies:
+      mdn-data: 2.23.0
+      source-map-js: 1.2.1
+
   '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
@@ -7366,6 +7421,8 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 23.0.1
 
+  '@pkgr/core@0.2.9': {}
+
   '@pkgr/utils@2.3.1':
     dependencies:
       cross-spawn: 7.0.3
@@ -7876,6 +7933,10 @@ snapshots:
       eslint-visitor-keys: 4.2.1
 
   '@ungap/structured-clone@1.3.0': {}
+
+  '@valibot/to-json-schema@1.5.0(valibot@1.2.0(typescript@5.8.2))':
+    dependencies:
+      valibot: 1.2.0(typescript@5.8.2)
 
   JSONStream@1.3.5:
     dependencies:
@@ -9190,6 +9251,21 @@ snapshots:
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.2.1(eslint@8.57.0)(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.32.0(@typescript-eslint/parser@6.2.1(eslint@8.57.0)(typescript@5.8.2))(eslint@8.57.0))(eslint@8.57.0)
     transitivePeerDependencies:
       - supports-color
+
+  eslint-plugin-better-tailwindcss@4.0.0-beta.6(eslint@8.57.0)(tailwindcss@4.1.18)(typescript@5.8.2):
+    dependencies:
+      '@eslint/css-tree': 3.6.8
+      '@valibot/to-json-schema': 1.5.0(valibot@1.2.0(typescript@5.8.2))
+      enhanced-resolve: 5.18.4
+      eslint: 8.57.0
+      jiti: 2.6.1
+      synckit: 0.11.12
+      tailwind-csstree: 0.1.4
+      tailwindcss: 4.1.18
+      tsconfig-paths-webpack-plugin: 4.2.0
+      valibot: 1.2.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - typescript
 
   eslint-plugin-import@2.32.0(@typescript-eslint/parser@6.2.1(eslint@8.57.0)(typescript@5.8.2))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@6.2.1(eslint@8.57.0)(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.32.0(@typescript-eslint/parser@6.2.1(eslint@8.57.0)(typescript@5.8.2))(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
@@ -11094,6 +11170,8 @@ snapshots:
 
   math-intrinsics@1.1.0: {}
 
+  mdn-data@2.23.0: {}
+
   meow@12.1.1: {}
 
   meow@13.2.0: {}
@@ -12454,10 +12532,16 @@ snapshots:
 
   symbol-tree@3.2.4: {}
 
+  synckit@0.11.12:
+    dependencies:
+      '@pkgr/core': 0.2.9
+
   synckit@0.8.5:
     dependencies:
       '@pkgr/utils': 2.3.1
       tslib: 2.5.0
+
+  tailwind-csstree@0.1.4: {}
 
   tailwind-merge@3.4.0: {}
 
@@ -12523,10 +12607,23 @@ snapshots:
     dependencies:
       typescript: 5.8.2
 
+  tsconfig-paths-webpack-plugin@4.2.0:
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.18.4
+      tapable: 2.2.1
+      tsconfig-paths: 4.2.0
+
   tsconfig-paths@3.15.0:
     dependencies:
       '@types/json5': 0.0.29
       json5: 1.0.2
+      minimist: 1.2.8
+      strip-bom: 3.0.0
+
+  tsconfig-paths@4.2.0:
+    dependencies:
+      json5: 2.2.3
       minimist: 1.2.8
       strip-bom: 3.0.0
 
@@ -12721,6 +12818,10 @@ snapshots:
       convert-source-map: 1.9.0
 
   v8flags@4.0.1: {}
+
+  valibot@1.2.0(typescript@5.8.2):
+    optionalDependencies:
+      typescript: 5.8.2
 
   validate-npm-package-license@3.0.4:
     dependencies:

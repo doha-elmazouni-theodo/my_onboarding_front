@@ -4,13 +4,13 @@ exports[`Testing page example should render home 1`] = `
 <div>
   <div>
     <section
-      class="text-gray-600 body-font"
+      class="body-font text-gray-600"
     >
       <div
-        class="container px-5 py-24 mx-auto"
+        class="container mx-auto px-5 py-24"
       >
         <div
-          class="flex flex-col w-full mb-20 text-center justify-center items-center"
+          class="mb-20 flex w-full flex-col items-center justify-center text-center"
         >
           <img
             alt="Logo"
@@ -24,12 +24,12 @@ exports[`Testing page example should render home 1`] = `
             width="100"
           />
           <h2
-            class="mb-1 text-xs font-medium tracking-widest text-red-500 title-font"
+            class="title-font mb-1 text-xs font-medium tracking-widest text-red-500"
           >
             NIMBLENEXT
           </h2>
           <h1
-            class="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font"
+            class="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl"
           >
             Nimbleways' Opinionated Next.js boilerplate
           </h1>
@@ -38,29 +38,29 @@ exports[`Testing page example should render home 1`] = `
           class="flex flex-wrap justify-center"
         >
           <div
-            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60 flex flex-col justify-between"
+            class="flex flex-col justify-between border-l-2 border-gray-200/60 px-8 py-6 md:w-full lg:w-1/2 xl:w-1/4"
           >
             <section>
               <h2
-                class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                class="title-font mb-2 text-lg font-medium text-gray-900 sm:text-xl"
               >
                 Stability
               </h2>
               <p
-                class="leading-relaxed text-base mb-4"
+                class="mb-4 text-base leading-relaxed"
               >
                 Le produit ne doit pas présenter de bugs impactant l'expérience utilisateur.
               </p>
             </section>
             <a
-              class="text-red-500 inline-flex items-center"
+              class="inline-flex items-center text-red-500"
               href="https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#77f96802a1954504a71ca6480f609c50"
               rel="noreferrer"
               target="_blank"
             >
               Learn More
               <svg
-                class="w-4 h-4 ml-2"
+                class="ml-2 size-4 "
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -75,29 +75,29 @@ exports[`Testing page example should render home 1`] = `
             </a>
           </div>
           <div
-            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60 flex flex-col justify-between"
+            class="flex flex-col justify-between border-l-2 border-gray-200/60 px-8 py-6 md:w-full lg:w-1/2 xl:w-1/4"
           >
             <section>
               <h2
-                class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                class="title-font mb-2 text-lg font-medium text-gray-900 sm:text-xl"
               >
                 Security
               </h2>
               <p
-                class="leading-relaxed text-base mb-4"
+                class="mb-4 text-base leading-relaxed"
               >
                 Le produit doit être prémunis contre les vulnérabilités les plus communes.
               </p>
             </section>
             <a
-              class="text-red-500 inline-flex items-center"
+              class="inline-flex items-center text-red-500"
               href="https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#becfbc6cab35431fbef11110c9b34546"
               rel="noreferrer"
               target="_blank"
             >
               Learn More
               <svg
-                class="w-4 h-4 ml-2"
+                class="ml-2 size-4 "
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -112,29 +112,29 @@ exports[`Testing page example should render home 1`] = `
             </a>
           </div>
           <div
-            class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60 flex flex-col justify-between"
+            class="flex flex-col justify-between border-l-2 border-gray-200/60 px-8 py-6 md:w-full lg:w-1/2 xl:w-1/4"
           >
             <section>
               <h2
-                class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"
+                class="title-font mb-2 text-lg font-medium text-gray-900 sm:text-xl"
               >
                 Speed
               </h2>
               <p
-                class="leading-relaxed text-base mb-4"
+                class="mb-4 text-base leading-relaxed"
               >
                 Le produit doit être au standard sur la performance. Ca inclut la vitesse de chargement et la scalabilité.
               </p>
             </section>
             <a
-              class="text-red-500 inline-flex items-center"
+              class="inline-flex items-center text-red-500"
               href="https://www.notion.so/m33/Framework-Qualit-3S-3bff76b2f374475298ef909341696281#b9184c326e2c48d6a696ecd59f64328f"
               rel="noreferrer"
               target="_blank"
             >
               Learn More
               <svg
-                class="w-4 h-4 ml-2"
+                class="ml-2 size-4 "
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
@@ -150,10 +150,10 @@ exports[`Testing page example should render home 1`] = `
           </div>
         </div>
         <div
-          class="flex flex-col w-full mb-20 text-center"
+          class="mb-20 flex w-full flex-col text-center"
         >
           <h2
-            class="mb-1 text-s font-medium tracking-widest text-red-500 "
+            class="text-s mb-1 font-medium tracking-widest text-red-500 "
           >
             <button
               class="btn btn-blue"
@@ -162,7 +162,7 @@ exports[`Testing page example should render home 1`] = `
             </button>
           </h2>
           <div
-            class="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font"
+            class="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl"
           >
             <h2>
               example de texte
@@ -174,10 +174,10 @@ exports[`Testing page example should render home 1`] = `
               </u>
             </h2>
             <div
-              class="flex justify-center mt-4"
+              class="mt-4 flex justify-center"
             >
               <button
-                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 h-9 px-4 py-2 has-[>svg]:px-3"
+                class="inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40 h-9 px-4 py-2 has-[>svg]:px-3"
                 data-slot="button"
               >
                 <svg

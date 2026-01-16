@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 const HomePage: React.FC = () => {
   return (
     <div>
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col w-full mb-20 text-center justify-center items-center">
+      <section className="body-font text-gray-600">
+        <div className="container mx-auto px-5 py-24">
+          <div className="mb-20 flex w-full flex-col items-center justify-center text-center">
             <Image src="/logo.svg" alt="Logo" width={100} height={100} className="mb-4" />
-            <h2 className="mb-1 text-xs font-medium tracking-widest text-red-500 title-font">
+            <h2 className="title-font mb-1 text-xs font-medium tracking-widest text-red-500">
               {SITE_CONFIG.title.toUpperCase()}
             </h2>
-            <h1 className="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
+            <h1 className="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl">
               {SITE_CONFIG.description}
             </h1>
           </div>
@@ -54,18 +54,18 @@ const HomePage: React.FC = () => {
             </Banner3S>
           </div>
 
-          <div className="flex flex-col w-full mb-20 text-center">
-            <h2 className="mb-1 text-s font-medium tracking-widest text-red-500 ">
+          <div className="mb-20 flex w-full flex-col text-center">
+            <h2 className="text-s mb-1 font-medium tracking-widest text-red-500 ">
               <ChangeLanguageButton />
             </h2>
-            <div className="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">
+            <div className="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl">
               <h2>
                 <TranslateMessage txKey={txKeys.common.labelExample} />
               </h2>
               <h2>
                 <TranslateMessage txKey={txKeys.common.labelExampleFormatted} components={{ underline: <u /> }} />
               </h2>
-              <div className="flex justify-center mt-4">
+              <div className="mt-4 flex justify-center">
                 <LandingButton />
               </div>
             </div>
