@@ -4,6 +4,12 @@
     "labelExample": "example de texte",
     "labelExampleFormatted": "exemple de texte <underline>formaté</underline>",
     "generalError": "Une erreur s'est produite",
-    "styledButton": "Exemple de bouton shadcn"
+    "styledButton": "Exemple de bouton shadcn",
+    "megaTitle": "Outils sélectionnés pour vous équiper !",
+    "subtitle": "Rejoignez l'initiative worktools de Theodo pour vous équiper pour vos tâches quotidiennes.",
+    "join": "S'inscrire",
+    "signIn": "Se connecter",
+
+    "continueAs": "<gray>Continuer en tant que</gray> <user>{{user}}?</user>"
   }
 }

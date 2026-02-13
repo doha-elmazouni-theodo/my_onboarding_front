@@ -4,6 +4,12 @@
     "labelExample": "text example",
     "labelExampleFormatted": "example <underline>formatted</underline> text",
     "generalError": "An error has occurred",
-    "styledButton": "Example of shadcn button "
+    "styledButton": "Example of shadcn button ",
+    "megaTitle": "Curated tools to gear you up!",
+    "subtitle": "Join Theodo’s worktools initiative to get you suited up for your daily tasks.",
+    "join": "Join",
+    "signIn": "Sign in",
+
+    "continueAs": "<gray>Continue as</gray> <user>{{user}}?</user>"
   }
 }

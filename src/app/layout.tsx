@@ -5,6 +5,7 @@ import { SITE_CONFIG } from "~config/site";
 import { Providers } from "./providers";
 
 import type { Metadata } from "next";
+import Head from "next/head";
 
 const BUILD_ID = process.env["NEXT_PUBLIC_BUILD_ID"] ?? "";
 const BUILD_DATE = process.env["NEXT_PUBLIC_BUILD_DATE"] ?? "";
@@ -31,6 +32,9 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+      </Head>
       <body>
         <div className="min-h-screen">
           <Providers>{children}</Providers>
