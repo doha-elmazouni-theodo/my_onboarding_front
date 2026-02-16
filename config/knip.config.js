@@ -22,12 +22,20 @@ module.exports = {
     "config/**/*.{js,ts}",
   ],
   project: ["src/**/*.{js,ts,jsx,tsx}"],
+  ignore: [
+    "src/components/home/Home.style.ts",
+    "src/components/icons/arrow/index.tsx",
+    "src/components/landing/banner3s.tsx",
+    "src/components/landing/LandingButton.tsx",
+    "src/i18n/useTranslation.ts",
+  ],
   ignoreDependencies: [
     "sharp",
     "@release-it/conventional-changelog",
     "@types/react-redux",
     "tailwindcss",
     "tw-animate-css",
+    "lucide-react",
   ],
 };
 

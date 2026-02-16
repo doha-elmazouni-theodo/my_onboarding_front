@@ -1,13 +1,20 @@
-import HomePage from "~app/page";
+import Home from "~components/home";
 
-import { render } from "./test-utils";
+import { Renderer } from "./Renderer";
+import { screen, userEvent } from "./test-utils";
 
-describe("Testing page example", () => {
-  it("should render background image div", () => {
-    const { container } = render(<HomePage />);
+const mockRouter = {
+  push: jest.fn(),
+};
+jest.mock("next/navigation", () => ({
+  useRouter: () => mockRouter,
+}));
 
-    const backgroundDiv = container.getElementsByClassName("homepage-background");
-
-    expect(backgroundDiv.length).toBe(1);
+it("should render Sign In button", async () => {
+  new Renderer(<Home />).withTranslation().render();
+  const signInButton = screen.getByRole("button", {
+    name: /se connecter/iu,
   });
+  await userEvent.click(signInButton);
+  expect(mockRouter.push).toHaveBeenCalledWith("/signin");
 });
