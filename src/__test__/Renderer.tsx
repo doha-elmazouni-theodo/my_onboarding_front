@@ -1,38 +1,34 @@
 // renderer.tsx
 import React from "react";
 
-import { TranslationProvider } from "@/providers/TranslationProvider";
+import { Providers } from "~app/providers";
+import { TestTranslationProvider } from "~i18n";
 
+// eslint-disable-next-line no-restricted-imports
 import type { RenderResult } from "@testing-library/react";
+// eslint-disable-next-line no-restricted-imports
 import { render } from "@testing-library/react";
 import type { ReactElement } from "react";
 
 export class Renderer {
-  // 1. UI privée
   private ui: ReactElement;
 
-  constructor(ui: ReactElement) {
+  public constructor(ui: ReactElement) {
     this.ui = ui;
   }
 
-  // 2. Ajout du provider de traduction
-  withTranslation() {
-    this.ui = <TranslationProvider>{this.ui}</TranslationProvider>;
+  public withTranslation(): this {
+    this.ui = <TestTranslationProvider>{this.ui}</TestTranslationProvider>;
 
-    return this; // important pour le chaining
+    return this;
   }
 
-  // 3. Méthode pour regrouper tous les providers
-  withAllProviders() {
-    return this.withTranslation();
-    // plus tard :
-    // .withTheme()
-    // .withAuth()
-    // .withQueryClient()
+  public withAllProviders(): this {
+    this.ui = <Providers>{this.ui}</Providers>;
+    return this;
   }
 
-  // 4. Render final
-  render(): RenderResult {
+  public render(): RenderResult {
     return render(this.ui);
   }
 }

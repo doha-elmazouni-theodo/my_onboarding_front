@@ -10,7 +10,7 @@ import { RocketIcon } from "lucide-react";
 export const LandingButton: React.FC = () => {
   const translate = useTranslation();
   return (
-    <Button variant="destructive">
+    <Button variant="primary">
       <RocketIcon />
       {translate(txKeys.common.styledButton)}
     </Button>
