@@ -3,21 +3,53 @@
 exports[`Testing page example should render home 1`] = `
 <div>
   <div
-    class="homepage-background fixed inset-0 bg-repeat bg-center"
+    class="homepage-background fixed inset-0 flex min-h-screen items-center justify-center bg-center bg-repeat text-center"
     style="background-image: url(/img.jpg);"
   >
-    <button
-      class="inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all disabled:pointer-events-none bg-white text-black hover:bg-[var(--burnt-sienna)] hover:text-white active:bg-[var(--burnt-sienna-dark)] disabled:bg-[var(--mineshaft)] disabled:text-[var(--mid-gray)] w-[138px]"
-      data-slot="button"
+    <div
+      class="center relative z-10 flex min-h-screen w-full max-w-4xl items-center justify-center px-4 py-8 text-center"
     >
-      Hello World
-    </button>
-    <button
-      class="inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all disabled:pointer-events-none bg-transparent text-white border border-white/80 hover:bg-white/10 hover:border-2 active:bg-white/20 active:border-2 disabled:border-white/30 disabled:text-white/40 w-[138px]"
-      data-slot="button"
-    >
-      Hello World
-    </button>
+      <div
+        class="flex flex-col items-center"
+      >
+        <img
+          alt="Theodo logo"
+          data-nimg="1"
+          decoding="async"
+          height="63.65"
+          loading="lazy"
+          src="/Theodo.svg"
+          style="color: transparent;"
+          width="295"
+        />
+        <h1
+          class="mega-title mt-6 text-white"
+        >
+          Outils sélectionnés pour vous équiper !
+        </h1>
+        <p
+          class="body-text-regular mt-2 text-white"
+        >
+          Rejoignez l'initiative worktools de Theodo pour vous équiper pour vos tâches quotidiennes.
+        </p>
+        <div
+          class="mt-15 flex justify-center gap-4"
+        >
+          <button
+            class="inline-flex cursor-pointer items-center justify-center rounded-full py-3 font-medium transition-all bg-transparent border-2 text-white border-white hover:bg-white/10 hover:outline-1 hover:outline-white active:bg-white/20 active:outline-1 active:outline-white disabled:border-white/30 disabled:text-white/40 w-[138px]"
+            data-slot="button"
+          >
+            S'inscrire
+          </button>
+          <button
+            class="inline-flex cursor-pointer items-center justify-center rounded-full py-3 font-medium transition-all bg-white text-black hover:bg-[var(--burnt-sienna)] hover:text-white active:bg-[var(--burnt-sienna-dark)] disabled:bg-[var(--mineshaft)] disabled:text-[var(--mid-gray)] w-[138px]"
+            data-slot="button"
+          >
+            Se connecter
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

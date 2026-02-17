@@ -1,21 +1,118 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "~components/lib/utils"
+import { cn } from "~components/lib/utils";
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
-  return (
-    <input
-      type={type}
-      data-slot="input"
-      className={cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
-      )}
-      {...props}
-    />
-  )
-}
+import { Eye, EyeOff } from "lucide-react";
 
-export { Input }
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  variant?: "default" | "password";
+  label?: string;
+};
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type = "text", variant = "default", label, disabled, ...props }, ref) => {
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const isPassword = variant === "password";
+
+    let inputType = type;
+
+    const inputId = React.useId();
+
+    if (isPassword) {
+      inputType = showPassword ? "text" : "password";
+    }
+
+    return (
+      <div className="group relative w-full">
+        <input
+          id={inputId}
+          ref={ref}
+          type={inputType}
+          placeholder=" "
+          disabled={disabled}
+          className={cn(
+            `
+            peer
+            w-full
+            rounded-none
+            border-0
+            border-b-2
+            border-[#404040]
+            bg-transparent
+            px-0
+            pt-6
+            pb-2
+            text-white
+            transition-colors
+            duration-200
+
+            hover:border-[#606060]
+
+            focus-visible:border-white
+            focus-visible:ring-0
+            focus-visible:outline-none
+
+            disabled:cursor-not-allowed
+            disabled:border-[#404040]
+            `,
+            isPassword && "pr-10",
+            className,
+          )}
+          {...props}
+        />
+
+        {/* Floating Label */}
+        {Boolean(label ?? "") && (
+          <label
+            htmlFor={inputId}
+            className="
+              absolute
+              top-4
+              left-0
+              text-[16px]
+              text-[#606060]
+              transition-all
+              duration-200
+
+              peer-not-placeholder-shown:top-0
+              peer-not-placeholder-shown:text-[13px]
+              peer-focus:top-0
+
+              peer-focus:text-[13px]
+              peer-focus:text-white
+            "
+          >
+            {label}
+          </label>
+        )}
+
+        {/* Password Toggle */}
+        {isPassword && (
+          <button
+            type="button"
+            onClick={() => {
+              setShowPassword((prev) => !prev);
+            }}
+            className="
+              absolute
+              top-1/2
+              right-0
+              -translate-y-1/2
+              text-[#606060]
+              transition-colors
+              group-focus-within:text-white
+              active:text-white
+            "
+          >
+            {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
+          </button>
+        )}
+      </div>
+    );
+  },
+);
+
+Input.displayName = "Input";
+
+export { Input };
