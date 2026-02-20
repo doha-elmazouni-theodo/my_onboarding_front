@@ -7,6 +7,7 @@ import txKeys from "~i18n/translations";
 
 import { useLastConnectedUser } from "./hooks";
 
+import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -16,11 +17,9 @@ const Home: FC = () => {
   const router = useRouter();
 
   const handleJoinClick = () => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     router.push("/signup");
   };
   const handleSignInClick = () => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     router.push("/signin");
   };
   const user = useLastConnectedUser();
@@ -31,8 +30,7 @@ const Home: FC = () => {
         "homepage-background fixed inset-0 flex min-h-screen items-center justify-center bg-center bg-repeat text-center",
       )}
       style={{
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access
-        backgroundImage: `url(${backgroundImage.src ?? backgroundImage})`,
+        backgroundImage: `url(${(backgroundImage as StaticImageData).src})`,
       }}
     >
       {/* Authentication link */}
@@ -47,8 +45,7 @@ const Home: FC = () => {
             }}
           >
             <TranslateMessage
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              txKey={txKeys.common.continueAs}
+              txKey={txKeys.common["continueAs"]}
               values={{ user }}
               components={{
                 gray: <span className="text-[13px] text-(--official-gray)" />,

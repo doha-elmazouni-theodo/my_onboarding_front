@@ -6,7 +6,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex  cursor-pointer items-center justify-center rounded-full py-3 font-medium transition-all",
+  "flex  cursor-pointer place-items-center justify-center  gap-3  rounded-full p-4  font-medium transition-all",
   {
     variants: {
       variant: {

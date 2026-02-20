@@ -1,27 +1,34 @@
 import * as React from "react";
 
 import { cn } from "~components/lib/utils";
+import TranslateMessage from "~i18n/TranslateMessage";
 
 import { Eye, EyeOff } from "lucide-react";
+import type { ReactNode } from "react";
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   variant?: "default" | "password";
-  label?: string;
+  label?: ReactNode | string;
+
+  error?: boolean;
+  errorMessage?: ReactNode;
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = "text", variant = "default", label, disabled, ...props }, ref) => {
+  ({ className, type = "text", variant = "default", label, disabled, error = false, errorMessage, ...props }, ref) => {
     const [showPassword, setShowPassword] = React.useState(false);
 
     const isPassword = variant === "password";
 
-    let inputType = type;
-
     const inputId = React.useId();
 
-    if (isPassword) {
-      inputType = showPassword ? "text" : "password";
-    }
+    const inputType = isPassword && !showPassword ? "password" : type;
+
+    const borderClass = error
+      ? "border-[var(--burnt-sienna)] focus-visible:border-[var(--burnt-sienna)]"
+      : "border-[#404040] hover:border-[#606060] focus-visible:border-white";
+
+    const labelColorClass = error ? "text-[var(--burnt-sienna)]" : "text-white";
 
     return (
       <div className="group relative w-full">
@@ -33,29 +40,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           className={cn(
             `
-            peer
-            w-full
-            rounded-none
-            border-0
-            border-b-2
-            border-[#404040]
-            bg-transparent
-            px-0
-            pt-6
-            pb-2
-            text-white
-            transition-colors
-            duration-200
-
-            hover:border-[#606060]
-
-            focus-visible:border-white
-            focus-visible:ring-0
-            focus-visible:outline-none
-
-            disabled:cursor-not-allowed
-            disabled:border-[#404040]
+            peer w-full rounded-none border-0 border-b-2 bg-transparent
+            px-0 pt-6 pb-2 text-white transition-colors duration-200
+            focus-visible:ring-0 focus-visible:outline-none
+            disabled:cursor-not-allowed disabled:border-[#404040]
             `,
+            borderClass,
             isPassword && "pr-10",
             className,
           )}
@@ -63,28 +53,29 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         />
 
         {/* Floating Label */}
-        {Boolean(label ?? "") && (
+        {Boolean(label) && (
           <label
             htmlFor={inputId}
-            className="
-              absolute
-              top-4
-              left-0
-              text-[16px]
-              text-[#606060]
-              transition-all
-              duration-200
-
+            className={cn(
+              `
+              absolute top-4 left-0 text-[16px] font-light
+              transition-all duration-200
               peer-not-placeholder-shown:top-0
               peer-not-placeholder-shown:text-[13px]
-              peer-focus:top-0
-
-              peer-focus:text-[13px]
-              peer-focus:text-white
-            "
+              peer-focus:top-0 peer-focus:text-[13px]
+              `,
+              labelColorClass,
+            )}
           >
             {label}
           </label>
+        )}
+
+        {/* Error message */}
+        {Boolean(errorMessage) && (
+          <p className="mt-2 text-[13px] font-light text-(--burnt-sienna)">
+            <TranslateMessage txKey={errorMessage as string} />
+          </p>
         )}
 
         {/* Password Toggle */}
@@ -95,14 +86,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               setShowPassword((prev) => !prev);
             }}
             className="
-              absolute
-              top-1/2
-              right-0
-              -translate-y-1/2
-              text-[#606060]
-              transition-colors
-              group-focus-within:text-white
-              active:text-white
+              absolute top-1/2 right-0 -translate-y-1/2
+              text-[#606060] transition-colors
+              group-focus-within:text-white active:text-white
             "
           >
             {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}

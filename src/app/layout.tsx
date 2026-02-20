@@ -5,7 +5,7 @@ import { SITE_CONFIG } from "~config/site";
 import { Providers } from "./providers";
 
 import type { Metadata } from "next";
-import Head from "next/head";
+import { Roboto } from "next/font/google";
 
 const BUILD_ID = process.env["NEXT_PUBLIC_BUILD_ID"] ?? "";
 const BUILD_DATE = process.env["NEXT_PUBLIC_BUILD_DATE"] ?? "";
@@ -28,14 +28,16 @@ export const metadata: Metadata = {
     BUILD_SHA,
   },
 };
+/* eslint-disable-next-line new-cap */
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700"],
+});
 
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-      </Head>
-      <body>
+      <body className={roboto.className}>
         <div className="min-h-screen">
           <Providers>{children}</Providers>
         </div>

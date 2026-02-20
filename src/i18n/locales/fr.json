@@ -10,6 +10,21 @@
     "join": "S'inscrire",
     "signIn": "Se connecter",
 
-    "continueAs": "<gray>Continuer en tant que</gray> <user>{{user}}?</user>"
+    "continueAs": "<gray>Continuer en tant que</gray> <user>{{user}}?</user>",
+    "welcome": "Bienvenue de retour",
+    "back": "RETOUR",
+    "dontHaveAccount": "Vous n'avez pas de compte ? Inscrivez-vous",
+    "signupGoogle": "Continuer avec Google",
+    "signupApple": "Continuer avec Apple",
+    "emailAddress": "Adresse email",
+    "password": "Mot de passe"
+  },
+  "errors": {
+    "emailInvalid": "Il semble y avoir une erreur dans votre adresse email, veuillez la vérifier !",
+    "passwordIncorrect": "Le mot de passe saisi est incorrect. Veuillez vous assurer qu'il est correct.",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 4 caractères.",
+    "emailMustEndWithTheodo": "L'email doit toujours se terminer par @theodo.com",
+    "emailRequired": "L'email est requis.",
+    "passwordRequired": "Le mot de passe est requis."
   }
 }

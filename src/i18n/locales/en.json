@@ -9,7 +9,21 @@
     "subtitle": "Join Theodo’s worktools initiative to get you suited up for your daily tasks.",
     "join": "Join",
     "signIn": "Sign in",
-
-    "continueAs": "<gray>Continue as</gray> <user>{{user}}?</user>"
+    "continueAs": "<gray>Continue as</gray> <user>{{user}}?</user>",
+    "welcome": "Welcome back",
+    "back": "BACK",
+    "dontHaveAccount": "Don't have an account? Sign up",
+    "signupGoogle": "Continue with Google",
+    "signupApple": "Continue with Apple",
+    "emailAddress": "Email Address",
+    "password": "Password"
+  },
+  "errors": {
+    "emailInvalid": "There seems to be an error in your email address, please verify it!",
+    "passwordIncorrect": "The password entered is incorrect. Please make sure it is the right one.",
+    "passwordTooShort": "The password must contain at least 4 characters.",
+    "emailMustEndWithTheodo": "The email must always end with @theodo.com",
+    "emailRequired": "Email is required.",
+    "passwordRequired": "Password is required."
   }
 }

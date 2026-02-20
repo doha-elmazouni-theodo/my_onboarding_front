@@ -32,6 +32,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-slot": "^1.2.4",
     "@reduxjs/toolkit": "^1.9.2",
     "axios": "^0.27.2",
@@ -47,6 +48,7 @@
     "query-string": "^7.1.1",
     "react": "19.1.2",
     "react-dom": "19.1.2",
+    "react-hook-form": "^7.71.1",
     "react-i18next": "^12.2.0",
     "react-query": "^3.39.0",
     "react-redux": "^8.0.5",
