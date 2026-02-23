@@ -1,5 +1,6 @@
-import { z } from "zod";
 import BaseError from "~errors/BaseError";
+
+import { z } from "zod";
 
 const baseErrorSchema = z
   .object({

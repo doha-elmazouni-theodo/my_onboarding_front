@@ -1,6 +1,7 @@
-import z from "zod";
-import { loginResponseSchema } from "~components/lib/loginResponseSchema";
+import type { loginResponseSchema } from "~components/lib/loginResponseSchema";
 import type { TSignInFormType } from "~components/lib/signInValidationSchema";
+
+import type z from "zod";
 
 export type LoginRequest = {
   email: string;

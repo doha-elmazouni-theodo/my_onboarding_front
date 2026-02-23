@@ -1,11 +1,10 @@
 import type { TSignInFormType } from "~components/lib/signInValidationSchema";
-
+import type BaseError from "~errors/BaseError";
 import { login } from "~services/signin.service";
 import type { LoginResponse } from "~services/urls";
 
 import type { UseMutationOptions } from "@tanstack/react-query";
 import { useMutation, type UseMutationResult } from "@tanstack/react-query";
-import BaseError from "~errors/BaseError";
 
 type UseLoginMutationArgs = {
   onSuccess?: (data: LoginResponse) => void;
@@ -16,7 +15,7 @@ export const useLoginMutation = ({
   onSuccess,
   onError,
 }: UseLoginMutationArgs): UseMutationResult<LoginResponse, BaseError, TSignInFormType> => {
-  const options: UseMutationOptions<LoginResponse, BaseError, TSignInFormType, unknown> = {
+  const options: UseMutationOptions<LoginResponse, BaseError, TSignInFormType> = {
     mutationFn: login,
   };
 
