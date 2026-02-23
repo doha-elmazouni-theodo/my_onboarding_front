@@ -2,10 +2,19 @@
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["next/core-web-vitals", "@nimbleways/eslint-config"],
+  extends: [
+    "next/core-web-vitals",
+    "@nimbleways/eslint-config",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+  ],
   plugins: ["better-tailwindcss"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json"],
+    tsconfigRootDir: __dirname,
   },
 
   settings: {

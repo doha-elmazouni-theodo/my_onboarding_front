@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button } from "~components/elements/button";
 import { Input } from "~components/elements/input";
+import { useLoginMutation } from "~hooks/signin.hook";
 import {
   defaultSignInFormValues,
   signInValidationSchema,
@@ -16,26 +14,49 @@ import TranslateMessage from "~i18n/TranslateMessage";
 import txKeys from "~i18n/translations";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Controller } from "react-hook-form";
 import { useForm } from "react-hook-form";
+
+import { enqueueSnackbar } from "~utils/notistackRef";
+import { LoginResponse } from "~services/urls";
 
 export default function SigninForm(): React.JSX.Element {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const {
-    register,
+    control,
     handleSubmit,
     setValue,
     clearErrors,
+
     formState: { errors },
   } = useForm<TSignInFormType>({
     resolver: zodResolver(signInValidationSchema),
     defaultValues: defaultSignInFormValues,
     mode: "onSubmit",
     reValidateMode: "onChange",
+  });
+  const { mutate } = useLoginMutation({
+    onSuccess: (data: LoginResponse) => {
+      clearErrors();
+      if (!data.success) {
+        enqueueSnackbar(data.error, { variant: "error", autoHideDuration: 1000 });
+        return;
+      }
+      localStorage.setItem("LAST_CONNECTED_EMAIL", data.user.email);
+      localStorage.setItem("LAST_CONNECTED_FULLNAME", data.user.fullname);
+      router.push("/mySpace");
+    },
+
+    onError: (error) => {
+      clearErrors();
+
+      enqueueSnackbar(error, { variant: "error", autoHideDuration: 1000 });
+    },
   });
   useEffect(() => {
     const isPrefilled = searchParams?.get("prefilled");
@@ -47,9 +68,11 @@ export default function SigninForm(): React.JSX.Element {
       }
     }
   }, [searchParams, setValue]);
-  const onSubmit = (): void => {
-    router.push("/");
+  const onSubmit = (formData: TSignInFormType) => {
+    mutate(formData);
   };
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="relative flex min-h-screen w-full flex-col px-8 pt-6 pb-10 text-white">
@@ -76,28 +99,55 @@ export default function SigninForm(): React.JSX.Element {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 px-16 pt-16">
-          <Input
-            label={<TranslateMessage txKey={txKeys.common.emailAddress} />}
-            {...register("email", {
-              onBlur: () => {
-                clearErrors("email");
-              },
-            })}
-            error={Boolean(errors.email)}
-            errorMessage={errors.email?.message}
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <Input
+                type="email"
+                label={<TranslateMessage txKey={txKeys.common.emailAddress} />}
+                value={field.value}
+                onChange={field.onChange}
+                ref={field.ref}
+                onBlur={() => {
+                  field.onBlur();
+                  clearErrors("email");
+                }}
+                error={errors.email !== undefined}
+                errorMessage={errors.email?.message}
+              />
+            )}
           />
-
-          <Input
-            type="password"
-            variant="password"
-            label={<TranslateMessage txKey={txKeys.common.password} />}
-            {...register("password", {
-              onBlur: () => {
-                clearErrors("password");
-              },
-            })}
-            error={Boolean(errors.password)}
-            errorMessage={errors.password?.message}
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <Input
+                type={showPassword ? "text" : "password"} // ✅ c'est ça qui affiche / masque
+                label={<TranslateMessage txKey={txKeys.common.password} />}
+                value={field.value}
+                onChange={field.onChange}
+                onBlur={() => {
+                  field.onBlur();
+                  clearErrors("password");
+                }}
+                ref={field.ref}
+                error={errors.password !== undefined}
+                errorMessage={errors.password?.message}
+                endAdornment={
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowPassword((prev) => !prev);
+                    }}
+                    className="cursor-pointer"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
+                  </button>
+                }
+              />
+            )}
           />
 
           <div className="flex flex-col gap-4 pt-8 text-sm font-semibold">

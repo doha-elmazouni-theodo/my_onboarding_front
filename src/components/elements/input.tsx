@@ -3,7 +3,6 @@ import * as React from "react";
 import { cn } from "~components/lib/utils";
 import TranslateMessage from "~i18n/TranslateMessage";
 
-import { Eye, EyeOff } from "lucide-react";
 import type { ReactNode } from "react";
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
@@ -12,17 +11,25 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 
   error?: boolean;
   errorMessage?: ReactNode;
+  endAdornment?: ReactNode;
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = "text", variant = "default", label, disabled, error = false, errorMessage, ...props }, ref) => {
-    const [showPassword, setShowPassword] = React.useState(false);
+  (
+    {
+      className,
+      type = "text",
 
-    const isPassword = variant === "password";
-
+      label,
+      disabled,
+      error = false,
+      errorMessage,
+      endAdornment,
+      ...props
+    },
+    ref,
+  ) => {
     const inputId = React.useId();
-
-    const inputType = isPassword && !showPassword ? "password" : type;
 
     const borderClass = error
       ? "border-[var(--burnt-sienna)] focus-visible:border-[var(--burnt-sienna)]"
@@ -35,7 +42,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           id={inputId}
           ref={ref}
-          type={inputType}
+          type={type}
           placeholder=" "
           disabled={disabled}
           className={cn(
@@ -46,7 +53,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             disabled:cursor-not-allowed disabled:border-[#404040]
             `,
             borderClass,
-            isPassword && "pr-10",
+            Boolean(endAdornment) && "pr-10",
             className,
           )}
           {...props}
@@ -78,21 +85,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
 
-        {/* Password Toggle */}
-        {isPassword && (
-          <button
-            type="button"
-            onClick={() => {
-              setShowPassword((prev) => !prev);
-            }}
+        {/* Right adornment (eg: eye icon for password visibility) */}
+        {Boolean(endAdornment) && (
+          <div
             className="
               absolute top-1/2 right-0 -translate-y-1/2
               text-[#606060] transition-colors
               group-focus-within:text-white active:text-white
             "
           >
-            {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
-          </button>
+            {endAdornment}
+          </div>
         )}
       </div>
     );

@@ -13,6 +13,7 @@ const contentSecurityPolicy = {
     styleSrc: "'self' https://*",
     fontSrc: "'self'",
     styleSrcElem: "'self' 'unsafe-inline'",
+    connectSrc: ["'self'", "http://localhost:3001"],
   },
 };
 
