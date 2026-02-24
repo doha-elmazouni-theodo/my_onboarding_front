@@ -1,5 +1,5 @@
 "use client";
-import backgroundImage from "~/assets/svg/Tiles.svg";
+import backgroundImage from "~/assets/svg/Tiles.png";
 import { Button } from "~components/elements/button";
 import { cn } from "~components/lib/utils";
 import TranslateMessage from "~i18n/TranslateMessage";
@@ -7,7 +7,6 @@ import txKeys from "~i18n/translations";
 
 import { useLastConnectedUser } from "./hooks";
 
-import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -30,7 +29,7 @@ const Home: FC = () => {
         "homepage-background fixed inset-0 flex min-h-screen items-center justify-center bg-center bg-repeat text-center",
       )}
       style={{
-        backgroundImage: `url(${(backgroundImage as StaticImageData).src})`,
+        backgroundImage: `url(${backgroundImage.src})`,
       }}
     >
       {/* Authentication link */}
