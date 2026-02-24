@@ -41,6 +41,7 @@ module.exports = {
     "src/__test__/Renderer.tsx",
     "src/i18n/useTranslation.ts",
     "src/components/elements/input.tsx",
+    "src/utils/axiosApiClient.ts",
   ],
   ignoreExports: ["InputProps"],
 };

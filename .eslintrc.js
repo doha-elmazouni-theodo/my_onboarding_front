@@ -4,7 +4,7 @@
 module.exports = {
   extends: ["next/core-web-vitals", "@nimbleways/eslint-config"],
   plugins: ["better-tailwindcss"],
-  // parser: "@typescript-eslint/parser",
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
   },
