@@ -12,3 +12,6 @@ export const login = async (form: TSignInFormType): Promise<LoginResponse> => {
 
   return loginResponseSchema.parse(response);
 };
+export const logout = async (): Promise<void> => {
+  await apiClient.post("/auth/logout");
+};

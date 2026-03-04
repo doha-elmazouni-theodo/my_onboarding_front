@@ -1,9 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-/*
-  ---break---
-*/
-@custom-variant dark (&:is(.dark *));
+
+/* Scope dark variant ONLY inside .my-spaceDark */
+@custom-variant my-spaceDark (&:is(.my-spaceDark *));
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -22,9 +21,7 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
-/*
-  ---break---
-*/
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -32,6 +29,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-colorPalette: var(--colorPalette);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -61,15 +59,20 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-text-switch-light: var(--color-text-switch-light);
+  --color-background-switch-light-primary: var(--color-background-switch-light-primary);
+  --color-background-switch-light-secondary: var(--color-background-switch-light-secondary);
+  --color-text-switch-dark: var(--color-text-switch-dark);
+  --color-background-switch-dark-primary: var(--color-background-switch-dark-primary);
+  --color-background-switch-dark-secondary: var(--color-background-switch-dark-secondary);
 }
-/*
-  ---break---
-*/
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
+  --colorPalette: #f1f1f1;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -105,14 +108,17 @@
   --mineshaft: #2b2b2b;
   --mid-gray: #9ca3af;
   --official-gray: #a6a6a6;
+  --color-text-switch-dark: #cecece;
+  --color-background-switch-dark-primary: #282828;
+  --color-background-switch-dark-secondary: #3e3e3e;
 }
-/*
-  ---break---
-*/
-.dark {
+
+/* Scoped "dark" variables ONLY when the wrapper has .my-spaceDark */
+.my-spaceDark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
+  --colorPalette: #393939;
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -141,29 +147,25 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --color-text-switch-light: #eb514e;
+  --color-background-switch-light-primary: #ffffff;
+  --color-background-switch-light-secondary: #eb514e;
 }
+
 .mega-title {
   font-family: "Roboto", sans-serif;
   font-size: 65px;
   font-weight: 600;
 }
+
 .body-text-regular {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
 }
 
-/*
-  ---break---
-*/
 @layer base {
-  /* * {
-    @apply border-border outline-ring/50;
-  } */
-  /* body {
-    @apply bg-background text-foreground;
-  } */
-}
-body {
-  background-color: var(--bg-dark);
+  body {
+    background-color: var(--bg-dark);
+  }
 }

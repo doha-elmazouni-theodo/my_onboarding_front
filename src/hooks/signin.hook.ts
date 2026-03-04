@@ -1,10 +1,11 @@
 import type { TSignInFormType } from "~components/lib/signInValidationSchema";
 import type BaseError from "~errors/BaseError";
-import { login } from "~services/signin.service";
+import { login, logout } from "~services/signin.service";
 import type { LoginResponse } from "~services/urls";
 
 import type { UseMutationOptions } from "@tanstack/react-query";
 import { useMutation, type UseMutationResult } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 
 type UseLoginMutationArgs = {
   onSuccess?: (data: LoginResponse) => void;
@@ -33,3 +34,16 @@ export const useLoginMutation = ({
 
   return useMutation(options);
 };
+export function useLogout(): UseMutationResult<unknown, Error, void> {
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: logout,
+    onSuccess: () => {
+      router.push("/signin");
+    },
+    onError: (error) => {
+      throw new Error(error.message);
+    },
+  });
+}

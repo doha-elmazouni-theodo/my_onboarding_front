@@ -1,5 +1,8 @@
 import "../styles/globals.css";
 
+import * as React from "react";
+
+import { cn } from "~components/lib/utils";
 import { SITE_CONFIG } from "~config/site";
 
 import { Providers } from "./providers";
@@ -37,7 +40,7 @@ const roboto = Roboto({
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={cn(roboto.className)}>
         <div className="min-h-screen">
           <Providers>{children}</Providers>
         </div>

@@ -5,6 +5,7 @@ describe("signInValidationSchema", () => {
     const invalidData = {
       password: "abcd",
     };
+    signInValidationSchema.safeParse(invalidData);
 
     expect(() => signInValidationSchema.parse(invalidData)).toThrow();
   });
