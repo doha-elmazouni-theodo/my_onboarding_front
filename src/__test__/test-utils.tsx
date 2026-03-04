@@ -14,9 +14,14 @@ import type {
 // eslint-disable-next-line no-restricted-imports
 import { render, renderHook } from "@testing-library/react";
 import type { ReactNode } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return <TestTranslationProvider>{children}</TestTranslationProvider>;
+  return (
+    <TestTranslationProvider>
+      <QueryClientProvider client={new QueryClient()}>{children}</QueryClientProvider>
+    </TestTranslationProvider>
+  );
 };
 
 const customRender = <

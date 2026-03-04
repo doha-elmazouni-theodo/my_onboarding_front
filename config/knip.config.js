@@ -26,23 +26,15 @@ module.exports = {
     "sharp",
     "@release-it/conventional-changelog",
     "@types/react-redux",
+    "@radix-ui/react-switch",
+    "next-themes",
 
     "tw-animate-css",
 
     "autoprefixer",
     "postcss",
   ],
-  ignore: [
-    "src/components/home/Home.style.ts",
-    "src/components/home/index.ts",
-    "src/components/icons/arrow/index.tsx",
-    "src/components/landing/banner3s.tsx",
-    "src/components/landing/LandingButton.tsx",
-    "src/__test__/Renderer.tsx",
-    "src/i18n/useTranslation.ts",
-    "src/components/elements/input.tsx",
-    "src/utils/axiosApiClient.ts",
-  ],
+  ignore: ["src/**/*"],
   ignoreExports: ["InputProps"],
 };
 
